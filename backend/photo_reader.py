@@ -37,7 +37,7 @@ def evaluate_photos(directory):
 # Example usage
 directory = 'blog_post'
 similar_photos, blur_values = evaluate_photos(directory)
-print("Similar photos: ")
+print("Similar photos:")
 for val in similar_photos:
     if len(similar_photos[val]) > 0:
         print(f'{val}: {similar_photos[val]}')
