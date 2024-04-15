@@ -1,0 +1,15 @@
+.container {
+    /*need to fix overflow*/
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+  }
+
+  .right-half {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* Set the width to occupy the right half of the screen */
+    height: 100%;
+    margin-left: auto;
+  }
