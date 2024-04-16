@@ -1,7 +1,6 @@
 <script>
-    let photoFilenames = ['IMG_3752.jpg', 'IMG_6604.jpg', 'IMG_6606.jpg', 'IMG_6590.jpg', 'IMG_6657.jpg', 'IMG_6666.jpg', 
-    'IMG_6801.jpg', 'IMG_6836.jpg', 'IMG_7065.jpg', 'IMG_7278.jpg', 'IMG_7304.jpg', 'IMG_7348.jpg', 'IMG_7358.jpg', 'IMG_7530.jpg' ]; // Array of photo filenames
 
+    export let photoFilenames;
     // Function to get the path of each photo
     function getPhotoPath(filename) {
         //return './jeremy_lib/IMG_6657.jpg';
@@ -11,21 +10,34 @@
     }
 
     // Array to track click state of each button
-    let buttonStates = new Array(photoFilenames.length).fill(false);
-
+    export let buttonStates;
     // Function to toggle the click state of a specific button
     function handleClick(index) {
         buttonStates[index] = !buttonStates[index];
     }
+
+    export let showSelectedOnly = false;
+
+    export let editMode;
+
 </script>
 
 
 <div class="gallery">
     {#each photoFilenames as filename, index}
-        <div class="img-container">
-            <img src={getPhotoPath(filename)} alt={filename} />
-            <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button"></button>
-        </div>
+        {#if !showSelectedOnly || buttonStates[index]}
+            <div class="img-container">
+                <img src={getPhotoPath(filename)} alt={filename} />
+                {#if editMode}
+                    <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
+                        {#if buttonStates[index]}
+                            <span class="check-text">✓</span>
+                            <!--<img src="./src/assets/checkmark.svg" alt="Checkmark" class="checkmark-icon">-->
+                        {/if}
+                    </button>
+                {/if}
+            </div>
+        {/if}
     {/each}
 </div>
 
@@ -36,9 +48,10 @@
         padding-top: 3px;
         padding-bottom: 3px;
         display: grid;
-        grid-template-columns: 380px 380px;
-        grid-gap: 3px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1px;
         height: 95%;
+        width: 99%;
         overflow-y: auto;
         /*background-color: blue;*/
     }
@@ -48,6 +61,7 @@
         height: 375px; 
         overflow: hidden;
         object-fit: cover;
+        border-radius: 2%;
     }
 
     .img-container {
@@ -57,7 +71,7 @@
     .toggle-button {
         position: absolute; /* Position the toggle button relative to its containing image */
         top: 17px; /* Position at the top */
-        right: 20px; /* Position at the right */
+        right: 23px; /* Position at the right */
         background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
         border: 2px solid white;
         width: 31px; /* Set width */
@@ -68,6 +82,19 @@
     }
 
     .toggle-button.clicked {
-        background-color: rgba(42, 79, 245, 0.95); /* Change background to blue when clicked */
+        background-color: #007AFF; /* Change background to blue when clicked */
+    }
+
+    .check-text {
+        font-size: 15px;
+        color: white;
+    }
+
+    .checkmark-icon {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 10px;
+        height: 10px;
     }
 </style>
