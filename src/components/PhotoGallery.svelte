@@ -50,8 +50,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1px;
-        height: 95%;
-        width: 99%;
+        height: 95vh;
         overflow-y: auto;
         /*background-color: blue;*/
     }

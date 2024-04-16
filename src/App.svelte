@@ -75,7 +75,7 @@
 
       <AlbumGallery {albumThumbnails}/>
 
-      View Options: <br>
+      <p id="view-title">View Options <br></p>
       
       <div class="toggle">
         <input type="checkbox" on:click={toggleShowSelectedOnly}/>
@@ -89,12 +89,15 @@
         <label> Edit Mode</label>
       </div>
 
-      <p>
-        Edit Cull: <br>
-        <button on:click={() => setButtonStatesCull([0, 2, 4, 6, 7])}>Apply Cull</button>
-        <button on:click={() => undoCull()}>Undo Cull</button>
-        <button on:click={() => deselectAll()}>Deselect All</button>
-      </p>
+      {#if editMode}
+        <p>
+          Edit Cull: <br>
+          <button on:click={() => setButtonStatesCull([0, 2, 4, 6, 7])}>Apply Cull</button>
+          <button on:click={() => undoCull()}>Undo Cull</button>
+          <button on:click={() => deselectAll()}>Deselect All</button>
+        </p>
+      {/if}
+      
       <div class="right-half">
         <PhotoGallery {buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
       </div> 

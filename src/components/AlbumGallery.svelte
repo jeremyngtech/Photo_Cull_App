@@ -12,35 +12,63 @@
 
 </script>
 
+<div id="library-album">
+    <p id="library-title">Library<br></p>
+    <div class="img-containter">
+        <img class="gallery-img" src='./src/lib/thumbnails/IMG_3752.jpg' alt='library image' /> <br>
+    </div>
 
-<div class="gallery">
-    {#each Object.entries(albumThumbnails) as [name, filename]}
-        <div class="img-container">
-        <img src={getPhotoPath(filename)} alt={filename} /> <br>
-        {name}
-        <br>
-        </div>
-    {/each}
+    <p id="album-title">Albums<br></p>
+    <div class="gallery">
+        {#each Object.entries(albumThumbnails) as [name, filename]}
+            <div class="img-container">
+                <img class="gallery-img" src={getPhotoPath(filename)} alt={filename} /> <br>
+                {name}
+                <br>
+            </div>
+        {/each}
+    </div>
 </div>
 
-
 <style>
+    #library-title{
+        margin-top: 0px;
+        margin-bottom: 8px;
+        font-size: 18px;
+    }
+
+    #album-title{
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    #library-album{
+        height: 55vh;
+        overflow-y: auto;
+        margin-top: 5px;
+        margin-bottom: 30px;
+    }
 
     .gallery {
         padding-top: 3px;
         padding-bottom: 3px;
+        margin-bottom: 20px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        height: 60%;
-        width: 30%;
-        overflow-y: auto;
+        grid-template-columns: 150px 150px 150px;
+        grid-gap: 20px;
+        /*height: 60%;*/
+        
+        /*background-color: aqua;*/
         /*background-color: blue;*/
     }
 
-    .gallery img {
-        width: 125px;
-        height: 125px; 
+    .img-container{
+        font-size: 12px;
+        /*background-color: red;*/
+    }
+    .gallery-img {
+        width: 150px;
+        height: 150px; 
         overflow: hidden;
         object-fit: cover;
         border-radius: 2%;
