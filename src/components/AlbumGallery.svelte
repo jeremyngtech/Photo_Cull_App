@@ -64,14 +64,13 @@
 
     .img-container{
         font-size: 12px;
-        /*background-color: red;*/
     }
     .gallery-img {
-        width: 150px;
+        width: 140px;
         height: 150px; 
         overflow: hidden;
         object-fit: cover;
-        border-radius: 2%;
+        border-radius: 3%;
     }
 
     

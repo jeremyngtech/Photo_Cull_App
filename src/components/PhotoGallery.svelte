@@ -48,9 +48,9 @@
         padding-top: 3px;
         padding-bottom: 3px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1px;
-        height: 95vh;
+        grid-template-columns: 375px 375px;
+        grid-gap: 8px;
+        height: 95%;
         overflow-y: auto;
         /*background-color: blue;*/
     }
@@ -60,11 +60,14 @@
         height: 375px; 
         overflow: hidden;
         object-fit: cover;
-        border-radius: 2%;
+        border-radius: 3%;
     }
 
     .img-container {
         position: relative;
+        width: 375px;
+        height: 375px;
+        /*background-color: red;*/
     }
 
     .toggle-button {
