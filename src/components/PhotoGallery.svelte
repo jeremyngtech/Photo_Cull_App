@@ -48,7 +48,7 @@
         padding-top: 3px;
         padding-bottom: 3px;
         display: grid;
-        grid-template-columns: 375px 375px;
+        grid-template-columns: 315px 315px 315px;
         grid-gap: 8px;
         height: 95%;
         overflow-y: auto;
@@ -56,8 +56,8 @@
     }
 
     .gallery img {
-        width: 375px;
-        height: 375px; 
+        width: 315px;
+        height: 315px; 
         overflow: hidden;
         object-fit: cover;
         border-radius: 3%;
@@ -65,15 +65,15 @@
 
     .img-container {
         position: relative;
-        width: 375px;
-        height: 375px;
+        width: 315px;
+        height: 315px; /*was 375 with 2 columns*/
         /*background-color: red;*/
     }
 
     .toggle-button {
         position: absolute; /* Position the toggle button relative to its containing image */
-        top: 17px; /* Position at the top */
-        right: 23px; /* Position at the right */
+        top: 17px; 
+        right: 23px;
         background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
         border: 2px solid white;
         width: 31px; /* Set width */

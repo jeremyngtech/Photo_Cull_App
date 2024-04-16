@@ -85,8 +85,9 @@
       <br>
       
       <div class="toggle">
-        <input type="checkbox" on:click={toggleEditMode}/>
+        <input type="checkbox" on:click={toggleEditMode}/> 
         <label> Edit Mode</label>
+        
       </div>
 
       {#if editMode}

@@ -34,11 +34,11 @@
     #library-title{
         margin-top: 0px;
         margin-bottom: 8px;
-        font-size: 18px;
+        font-size: 15px;
     }
 
     #album-title{
-        font-size: 18px;
+        font-size: 15px;
         margin-bottom: 8px;
     }
 
@@ -47,6 +47,7 @@
         overflow-y: auto;
         margin-top: 5px;
         margin-bottom: 30px;
+        /*border-bottom: white solid 3px;*/
     }
 
     .gallery {
@@ -54,7 +55,7 @@
         padding-bottom: 3px;
         margin-bottom: 20px;
         display: grid;
-        grid-template-columns: 150px 150px 150px;
+        grid-template-columns: 95px 95px 95px;
         grid-gap: 20px;
         /*height: 60%;*/
         
@@ -66,8 +67,8 @@
         font-size: 12px;
     }
     .gallery-img {
-        width: 140px;
-        height: 150px; 
+        width: 95px;
+        height: 95px; 
         overflow: hidden;
         object-fit: cover;
         border-radius: 3%;
