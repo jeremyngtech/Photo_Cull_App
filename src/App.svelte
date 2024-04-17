@@ -128,7 +128,7 @@
             <button class="option-button" on:click={() => undoCull()}>Undo Auto-Cull</button>
             <button class="option-button" on:click={() => deselectAll()}>Deselect All </button>
           </p>
-          <p>
+          <p id="cull-settings">
             Adjust Auto-Cull Settings: <br>
             Blurriness Scroll Bar <br>
             Brightness Scroll Bar <br>

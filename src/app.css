@@ -169,16 +169,22 @@ body {
   left: 22px;
 }
 
+#cull-settings {
+  margin-bottom: 0px;
+}
+
 .option-button {
-    background-color: rgba(255, 255, 255, 0); /* transparent background */
-    border: 1px solid white;
-    font-size: 12px;
-    color: white;
-    width: 100px; /* Set width */
-    height: 32px; /* Set height */
-    border-radius: 20px; /* Make it circular */
-    padding: 0; /* Remove padding */
-    cursor: pointer;
+  background-color: rgba(255, 255, 255, 0); /* transparent background */
+  border: 1px solid white;
+  font-size: 12px;
+  font-family: 'Gill Sans';
+  font-weight: 350;
+  color: white;
+  width: 100px; /* Set width */
+  height: 32px; /* Set height */
+  border-radius: 20px; /* Make it circular */
+  padding: 0; /* Remove padding */
+  cursor: pointer;
 }
 
 .option-button:hover {
