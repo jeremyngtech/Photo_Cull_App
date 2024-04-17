@@ -7,7 +7,23 @@ body {
 }
 
 #title {
-  font-size: 40px;
+  font-size: 35px;
+}
+
+.rounded-bar {
+  width: 325px; /* Adjust width as needed */
+  height: 1px; /* Adjust height as needed */
+  background-color: #ccc; /* Background color */
+  border-radius: 10px; /* Adjust border-radius to make it rounded */
+  margin-bottom: 15px;
+}
+
+#title-sep{
+  margin-top: 8px;
+}
+
+#view-sep{
+  margin-top: 8px;
 }
 
 .container {
@@ -32,11 +48,12 @@ body {
 
 #view-title {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .toggle {
   position: relative;
-  box-sizing: border-box;
+  
 }
 
 .toggle input[type="checkbox"] {
@@ -44,7 +61,7 @@ body {
   left: 0;
   top: 0;
   z-index: 10;
-  width: 100%;
+  width: 40px;
   height: 100%;
   cursor: pointer;
   opacity: 0;
@@ -54,13 +71,14 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
+  width: 140px;
 }
 
 .toggle label:before {
   content: '';
-  width: 60px; /* Adjust width proportionally */
-  height: 26px; /* Adjust height proportionally */
+  width: 40px; /* Adjust width proportionally */
+  height: 20px; /* Adjust height proportionally */
   background: #ccc;
   position: relative;
   display: inline-block;
@@ -72,8 +90,8 @@ body {
 .toggle label:after {
   content: '';
   position: absolute;
-  width: 22px; /* Adjust width proportionally */
-  height: 22px; /* Adjust height proportionally */
+  width: 16px; /* Adjust width proportionally */
+  height: 16px; /* Adjust height proportionally */
   border-radius: 50%;
   left: 2px;
   top: 2px;
@@ -89,5 +107,5 @@ body {
 }
 
 .toggle input[type="checkbox"]:checked + label:after {
-  left: 36px;
+  left: 22px;
 }

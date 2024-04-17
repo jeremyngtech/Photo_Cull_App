@@ -43,17 +43,13 @@
     }
 
     #library-album{
-        height: 55vh;
+        height: 59vh;
         overflow-y: auto;
-        margin-top: 5px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         /*border-bottom: white solid 3px;*/
     }
 
     .gallery {
-        padding-top: 3px;
-        padding-bottom: 3px;
-        margin-bottom: 20px;
         display: grid;
         grid-template-columns: 95px 95px 95px;
         grid-gap: 20px;

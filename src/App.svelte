@@ -73,21 +73,26 @@
     <div class="container">
       <span id="title">Photo Manager</span> <br>
 
+      <div class="rounded-bar" id="title-sep"></div>
+
       <AlbumGallery {albumThumbnails}/>
+
+      <div class="rounded-bar" id='view-sep'></div>
 
       <p id="view-title">View Options <br></p>
       
       <div class="toggle">
-        <input type="checkbox" on:click={toggleShowSelectedOnly}/>
-        <label> Culled View</label>
+        <input type="checkbox" on:click={toggleShowSelectedOnly}/> 
+        <label>&nbsp;&nbsp;Culled View</label>
+        
       </div>
+      
 
       <br>
       
       <div class="toggle">
         <input type="checkbox" on:click={toggleEditMode}/> 
-        <label> Edit Mode</label>
-        
+        <label>&nbsp;&nbsp;Edit Mode</label>
       </div>
 
       {#if editMode}
