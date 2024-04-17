@@ -45,12 +45,12 @@
 <style>
 
     .gallery {
-        padding-top: 3px;
         padding-bottom: 3px;
         display: grid;
         grid-template-columns: 315px 315px 315px;
         grid-gap: 8px;
         height: 95%;
+        width: 983px; /*don't like how this is hard coded... fix later*/
         overflow-y: auto;
         /*background-color: blue;*/
     }
@@ -77,7 +77,7 @@
         position: relative;
         width: 315px;
         height: 315px; /*was 375 with 2 columns*/
-        /*background-color: red;*/
+       /*background-color: red;*/
     }
 
     .toggle-button {
