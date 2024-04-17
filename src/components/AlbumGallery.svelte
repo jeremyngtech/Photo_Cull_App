@@ -42,11 +42,22 @@
         margin-bottom: 8px;
     }
 
-    #library-album{
+    #library-album {
         height: 59vh;
+        width: 350px;
         overflow-y: auto;
         margin-bottom: 20px;
         /*border-bottom: white solid 3px;*/
+    }
+
+    #library-album::-webkit-scrollbar {
+        width: 1px; /* Adjust as needed */
+        
+    }
+
+    #library-album::-webkit-scrollbar-thumb {
+        background-color: #ccc; /* Adjust as needed */
+        border-radius: 3%;
     }
 
     .gallery {

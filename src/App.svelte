@@ -3,7 +3,24 @@
   import PhotoGallery from './components/PhotoGallery.svelte';
   import AlbumGallery from './components/AlbumGallery.svelte';
 
-  let photoFilenames = ['IMG_3752.jpg', 'IMG_6604.jpg', 'IMG_6606.jpg', 'IMG_6590.jpg', 'IMG_6657.jpg', 'IMG_6666.jpg', 'IMG_6801.jpg', 'IMG_6836.jpg', 'IMG_7065.jpg', 'IMG_7278.jpg', 'IMG_7304.jpg', 'IMG_7348.jpg', 'IMG_7358.jpg', 'IMG_7530.jpg' ]; // Array of photo filenames
+  let photoFilenames = [
+    'IMG_3752.jpg', 'IMG_3753.jpg', //jeremy maggie michelle
+    'IMG_6604.jpg', 'IMG_6606.jpg', 'IMG_6590.jpg', 
+    'IMG_6655.jpg', 'IMG_6656.jpg', 'IMG_6657.jpg', //jeremy on cannon
+    'IMG_6658.jpg', 'IMG_6666.jpg', 'IMG_6801.jpg', 'IMG_6836.jpg', 
+    'IMG_3986.jpg', 'IMG_3988.jpg', 'IMG_3989.jpg', 'IMG_3990.jpg', 'IMG_3991.jpg', 'IMG_3992.jpg', 
+    'IMG_3993.jpg', 'IMG_3994.jpg', 'IMG_3995.jpg', 'IMG_3996.jpg', 'IMG_3997.jpg', 'IMG_3998.jpg', //all on cannon
+    'IMG_6932.jpg', 'IMG_6933.jpg', //church
+    'IMG_7065.jpg', 
+    'IMG_7177.jpg', 'IMG_7178.jpg', 'IMG_7179.jpg', //street sunset
+    'IMG_7278.jpg', 'IMG_7304.jpg', 
+    'IMG_7348.jpg', 'IMG_7349.jpg', 'IMG_7350.jpg', 'IMG_7351.jpg', //skygarden
+    'IMG_7358.jpg', 
+    'IMG_6393.jpg', 'IMG_6394.jpg', 'IMG_6395.jpg', 'IMG_6396.jpg', 'IMG_6397.jpg', 'IMG_6398.jpg', //tea
+    'IMG_7530.jpg',
+    'IMG_7475.jpg', 'IMG_7476.jpg','IMG_7477.jpg', //cocktail
+    'IMG_7466.jpg' 
+  ]; // Array of photo filenames
 
   let albumThumbnails = {
     'Austria': 'IMG_6196.jpg',
@@ -18,6 +35,8 @@
   }
 
   // Initialize buttonStates in App.svelte
+  let fixedCull = [0, 2, 3, 4, 5, 8, 9, 10, 11, 22, 25, 26, 27, 30, 31, 34, 36, 40, 43, 45, 47];
+
   let buttonStates = new Array(photoFilenames.length).fill(false);
 
   let previousStates = new Array(photoFilenames.length).fill(false);
@@ -71,7 +90,7 @@
   </head>
   <body>
     <div class="container">
-      <span id="title">Photo Manager</span> <br>
+      <span id="title">Cullify <span id="subtitle">&nbsp;Automated Photo Manager</span> </span> <br>
 
       <div class="rounded-bar" id="title-sep"></div>
 
@@ -79,34 +98,45 @@
 
       <div class="rounded-bar" id='view-sep'></div>
 
-      <p id="view-title">View Options <br></p>
-      
-      <div class="toggle">
-        <input type="checkbox" on:click={toggleShowSelectedOnly}/> 
-        <label>&nbsp;&nbsp;Culled View</label>
-        
-      </div>
       
 
-      <br>
-      
-      <div class="toggle">
-        <input type="checkbox" on:click={toggleEditMode}/> 
-        <label>&nbsp;&nbsp;Edit Mode</label>
+      <div class="view-scroll">
+
+        <p id="view-title">View Options <br></p>
+
+        <div class="toggle">
+          <input type="checkbox" on:click={toggleEditMode}/> 
+          <label>&nbsp;&nbsp;Edit Mode</label>
+        </div>
+
+        {#if editMode}
+          <p>
+            <button on:click={() => setButtonStatesCull(fixedCull)}>Apply Cull</button>
+            <button on:click={() => undoCull()}>Undo Cull</button>
+            <button on:click={() => deselectAll()}>Deselect All</button>
+          </p>
+          <p>
+            Adjust Cull Settings: <br>
+            Blurriness Scroll Bar <br>
+            Brightness Scroll Bar <br>
+            Sharpness Scroll Bar
+          </p>
+        {/if}
+
+        <br>
+
+        <div class="toggle">
+          <input type="checkbox" on:click={toggleShowSelectedOnly}/> 
+          <label>&nbsp;&nbsp;Culled View</label>
+        </div>
       </div>
 
-      {#if editMode}
-        <p>
-          Edit Cull: <br>
-          <button on:click={() => setButtonStatesCull([0, 2, 4, 6, 7])}>Apply Cull</button>
-          <button on:click={() => undoCull()}>Undo Cull</button>
-          <button on:click={() => deselectAll()}>Deselect All</button>
-        </p>
-      {/if}
-      
       <div class="right-half">
         <PhotoGallery {buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
       </div> 
+
+        
+      
     </div>
       
   </body>

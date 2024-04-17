@@ -55,6 +55,16 @@
         /*background-color: blue;*/
     }
 
+    .gallery::-webkit-scrollbar {
+        width: 1px; /* Adjust as needed */
+        
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+        background-color: #ccc; /* Adjust as needed */
+        border-radius: 3%;
+    }
+
     .gallery img {
         width: 315px;
         height: 315px; 

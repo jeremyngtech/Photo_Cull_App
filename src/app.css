@@ -10,8 +10,14 @@ body {
   font-size: 35px;
 }
 
+#subtitle {
+  font-size: 14px;
+  font-style: italic;
+  color: #ccc;
+}
+
 .rounded-bar {
-  width: 325px; /* Adjust width as needed */
+  width: 340px; /* Adjust width as needed */
   height: 1px; /* Adjust height as needed */
   background-color: #ccc; /* Background color */
   border-radius: 10px; /* Adjust border-radius to make it rounded */
@@ -43,12 +49,30 @@ body {
   width: 70%; /* Set the width to occupy the right half of the screen */
   height: 100%;
   margin-left: auto;
+  margin-right: 5px;
   /*background-color: blue;*/
 }
 
 #view-title {
   font-size: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
+}
+
+.view-scroll {
+  height: 130px;
+  width: 350px;
+  overflow-y: auto;
+}
+
+.view-scroll::-webkit-scrollbar {
+  width: 1px; /* Adjust as needed */
+  
+}
+
+.view-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Adjust as needed */
+  border-radius: 3%;
 }
 
 .toggle {
