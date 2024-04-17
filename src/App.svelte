@@ -102,30 +102,34 @@
 
       <div class="view-scroll">
 
-        <p id="view-title">View Options <br></p>
+        <div id="view-title">
+          Cull Your Photos &nbsp;
+          <div class="tooltip">
+            <img class="question" src='./src/assets/question.png'>
+            <span class="tooltiptext">
+              Culling is the process of choosing your best photos, reducing the number of photos in your library/album. <br>
+              <br>
+              Switch to Edit Mode to cull your photos.
+            </span>
+          </div>
+          <br>
+        </div>
 
         <div class="toggle">
           <input type="checkbox" on:click={toggleEditMode}/> 
-          <label>&nbsp;&nbsp;Edit Mode&nbsp;&nbsp;
-            <div class="tooltip">
-              <img class="question" src='./src/assets/question.png'>
-              <span class="tooltiptext">
-                Edit Mode allows you to cull your photos and adjust cull settings. <br>
-                <br>
-                Culling is the process of reducing the number of photos by only selecting the best ones.
-              </span>
-            </div>
+          <label>&nbsp;&nbsp;Edit Mode
+            
           </label>
         </div>
 
         {#if editMode}
           <p>
-            <button on:click={() => setButtonStatesCull(fixedCull)}>Apply Cull</button>
-            <button on:click={() => undoCull()}>Undo Cull</button>
+            <button on:click={() => setButtonStatesCull(fixedCull)}>Apply Auto-Cull</button>
+            <button on:click={() => undoCull()}>Undo Auto-Cull</button>
             <button on:click={() => deselectAll()}>Deselect All</button>
           </p>
           <p>
-            Adjust Cull Settings: <br>
+            Adjust Auto-Cull Settings: <br>
             Blurriness Scroll Bar <br>
             Brightness Scroll Bar <br>
             Sharpness Scroll Bar
@@ -136,7 +140,7 @@
 
         <div class="toggle">
           <input type="checkbox" on:click={toggleShowSelectedOnly}/> 
-          <label>&nbsp;&nbsp;Culled View</label>
+          <label>&nbsp;&nbsp;View Chosen Photos</label>
         </div>
       </div>
 

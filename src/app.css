@@ -98,7 +98,7 @@ body {
   padding: 5px;
   position: absolute;
   z-index: 1;
-  top: 120%;
+  top: 245%;
   left: 550%;
   transform: translateY(-50%);
   margin-left: -60px;
@@ -131,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   /*box-sizing: border-box;*/
-  width: 140px;
+  width: 200px;
 }
 
 .toggle label:before {
