@@ -109,7 +109,7 @@
             <span class="tooltiptext">
               Culling is the process of choosing your best photos, reducing the number of photos in your library/album. <br>
               <br>
-              Switch to Edit Mode to cull your photos.
+              Switch to Edit Mode to automatically or manually cull your photos.
             </span>
           </div>
           <br>
@@ -124,9 +124,9 @@
 
         {#if editMode}
           <p>
-            <button on:click={() => setButtonStatesCull(fixedCull)}>Apply Auto-Cull</button>
-            <button on:click={() => undoCull()}>Undo Auto-Cull</button>
-            <button on:click={() => deselectAll()}>Deselect All</button>
+            <button class="option-button" on:click={() => setButtonStatesCull(fixedCull)}>Apply Auto-Cull</button>
+            <button class="option-button" on:click={() => undoCull()}>Undo Auto-Cull</button>
+            <button class="option-button" on:click={() => deselectAll()}>Deselect All </button>
           </p>
           <p>
             Adjust Auto-Cull Settings: <br>
