@@ -106,7 +106,16 @@
 
         <div class="toggle">
           <input type="checkbox" on:click={toggleEditMode}/> 
-          <label>&nbsp;&nbsp;Edit Mode</label>
+          <label>&nbsp;&nbsp;Edit Mode&nbsp;&nbsp;
+            <div class="tooltip">
+              <img class="question" src='./src/assets/question.png'>
+              <span class="tooltiptext">
+                Edit Mode allows you to cull your photos and adjust cull settings. <br>
+                <br>
+                Culling is the process of reducing the number of photos by only selecting the best ones.
+              </span>
+            </div>
+          </label>
         </div>
 
         {#if editMode}
