@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.sqlite
+instance/
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Svelte
+public/build/
+
+# Editor directories
+.vscode/
+.idea/
+
+# Editor backup files
+*.swp
