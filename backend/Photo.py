@@ -1,4 +1,4 @@
-class Image:
+class Photo:
     def __init__(self, filename, image):
         self.filename = filename
         self.image = image
@@ -20,7 +20,7 @@ class Image:
             self.calculate_hash()
         if other.hash is None:
             other.calculate_hash()
-        return self.hash - other.hash < 5
+        return self.hash - other.hash < 3
     
     def __str__(self):
         return self.filename

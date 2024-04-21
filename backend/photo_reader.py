@@ -28,7 +28,7 @@ def evaluate_photos(directory):
     similar_photos = {name: set() for name in photo_hashes.keys()}
     for name1, hash1 in photo_hashes.items():
         for name2, hash2 in photo_hashes.items():
-            if name1 != name2 and hash1 - hash2 < 5:  # hash difference threshold for similarity
+            if name1 != name2 and hash1 - hash2 < 3:  # hash difference threshold for similarity
                 similar_photos[name1].add(name2)
                 similar_photos[name2].add(name1)
     

@@ -22,31 +22,42 @@ def create_photo_json(filename, image_path):
         "similar_photos": []  # This will be empty initially, comparison might be done later
     }
 
+
+def find_similar_photos(data):
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if int(data[i]["hash"], 16) - int(data[j]["hash"], 16) < 3:
+                data[i]["similar_photos"].append(data[j]["filename"])
+                data[j]["similar_photos"].append(data[i]["filename"])
+    return data
+
 def process_photos(directory):
     photos_json = []
     for filename in os.listdir(directory):
-        if filename.lower().endswith('.jpeg'):
+        print("Searching for photos in directory")
+        if filename.lower().endswith('.jpg'):
+            print(f"Found {filename} in directory")
             photo_info = create_photo_json(filename, os.path.join(directory, filename))
             photos_json.append(photo_info)
-    return photos_json
+    updated_json = find_similar_photos(photos_json)
+    return updated_json
 
-# Directory containing the JPEG files
+# Directory containing the applicable files
 jpeg_directory = '../src/lib/jeremy_lib'
-
-# Process the photos and get the JSON objects
-photos_json = process_photos(jpeg_directory)
-
-# Load existing JSON file or create a new one if not exists
 json_file_path = '../src/library.JSON'
-if os.path.exists(json_file_path):
-    with open(json_file_path, 'r') as file:
-        data = json.load(file)
-else:
-    data = {"Photos": [], "Moments": []}
 
-# Add new photos to the JSON data
-data["Photos"].extend(photos_json)
 
-# Save the updated JSON data
-with open(json_file_path, 'w') as file:
-    json.dump(data, file, indent=4)
+if __name__ == '__main__':
+    choice = input("1. Reset JSON file\n2. Run script to process photos\n3. Exit\nEnter your choice:")
+    while choice != '3':
+        if choice == '1':
+            data = {"Photos": [], "Moments": []}
+            with open(json_file_path, 'w') as file:
+                json.dump(data, file, indent=4)
+                print("JSON file has been reset.\n")
+        elif choice == '2':
+            photos_json = process_photos(jpeg_directory)
+            data["Photos"].extend(photos_json)
+            with open(json_file_path, 'w') as file:
+                json.dump(data, file, indent=4)
+        choice = input("1. Reset JSON file\n2. Run script to process photos\n3. Exit\nEnter your choice:")
