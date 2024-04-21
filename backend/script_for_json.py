@@ -31,13 +31,13 @@ def process_photos(directory):
     return photos_json
 
 # Directory containing the JPEG files
-jpeg_directory = './src/lib/jeremy_lib'
+jpeg_directory = '../src/lib/jeremy_lib'
 
 # Process the photos and get the JSON objects
 photos_json = process_photos(jpeg_directory)
 
 # Load existing JSON file or create a new one if not exists
-json_file_path = './src/library.JSON'
+json_file_path = '../src/library.JSON'
 if os.path.exists(json_file_path):
     with open(json_file_path, 'r') as file:
         data = json.load(file)
