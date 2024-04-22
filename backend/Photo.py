@@ -1,19 +1,15 @@
+from helpers import get_location, calculate_blur_value, get_date_time, calculate_image_hash
+
 class Photo:
-    def __init__(self, filename, image):
+    def __init__(self, filename, path, img):
         self.filename = filename
-        self.image = image
-        self.hash = None
-        self.blur_value = None
+        self.path = path
+        self.image = img
+        self.hash = calculate_image_hash(img)
+        self.blur_value = calculate_blur_value(path)
         self.similar_photos = set()
-    
-    def calculate_hash(self):
-        self.hash = imagehash.average_hash(self.image)
-    
-    def calculate_blur_value(self):
-        image_cv = cv2.imread(self.filename)
-        gray = cv2.cvtColor(image_cv, cv2.COLOR_BGR2GRAY)
-        laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var()
-        self.blur_value = laplacian_var
+        self.location = get_location(img)
+        self.time = get_date_time(img)
     
     def is_similar(self, other):
         if self.hash is None:

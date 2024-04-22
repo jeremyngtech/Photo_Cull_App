@@ -1,11 +1,11 @@
 class Moment:
-    def __init__(self, id, title, description, date, location, photo):
+    def __init__(self, id, date, location, photos=set(), title=None, description=None):
         self.id = id
         self.title = title
         self.description = description
         self.date = date
         self.location = location
-        self.photo = photo
+        self.photos = photos
 
     def __str__(self):
         return f"{self.id}: {self.title} ({self.date})"
