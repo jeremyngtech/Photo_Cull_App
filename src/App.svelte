@@ -2,8 +2,37 @@
   // @ts-nocheck
   import PhotoGallery from './components/PhotoGallery.svelte';
   import AlbumGallery from './components/AlbumGallery.svelte';
+  //import jsonLibrary from './jeremy-library.JSON';
 
-  let photoFilenames = [
+  let jsonLibrary;
+  let photoFilenames = [];
+  let bestPhotos = [];
+
+  // Fetch JSON data when the component is mounted - code from ChatGPT
+  async function fetchData() {
+  try {
+    const response = await fetch('src/jeremy-library.JSON');
+    if (!response.ok) {
+      throw new Error('Failed to fetch JSON');
+    }
+    const data = await response.json();
+    //console.log(data); // Log the response data
+    jsonLibrary = data; // Assign the data to jsonLibrary
+    //console.log("second", jsonLibrary);
+
+    jsonLibrary.Moments.forEach(moment => {
+      //console.log("success loop");
+      photoFilenames = photoFilenames.concat(moment.photos);
+      bestPhotos = bestPhotos.concat(moment.best_photos);
+    });
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+}
+  // Call the function to fetch data
+  fetchData();
+
+  /*let photoFilenames = [
     'IMG_3752.jpg', 'IMG_3753.jpg', //jeremy maggie michelle
     'IMG_6604.jpg', 'IMG_6606.jpg', 'IMG_6590.jpg', 
     'IMG_6655.jpg', 'IMG_6656.jpg', 'IMG_6657.jpg', //jeremy on cannon
@@ -20,7 +49,8 @@
     'IMG_7530.jpg',
     'IMG_7475.jpg', 'IMG_7476.jpg','IMG_7477.jpg', //cocktail
     'IMG_7466.jpg' 
-  ]; // Array of photo filenames
+  ]; // Array of photo filenames*/
+  
 
   let albumThumbnails = {
     'Austria': 'IMG_6196.jpg',
@@ -71,8 +101,16 @@
   }
 
   let showSelectedOnly = false;
-  function toggleShowSelectedOnly() {
-    showSelectedOnly = !showSelectedOnly;
+
+  function handleChangeShow(event) {
+    let selectedOption = event.target.value;
+    console.log(selectedOption);
+    if (selectedOption == "show_chosen"){
+      console.log("change")
+      showSelectedOnly = true;
+    } else {
+      showSelectedOnly = false;
+    }
   }
 
   let editMode = false;
@@ -90,7 +128,7 @@
   </head>
   <body>
     <div class="container">
-      <span id="title">Cullify <span id="subtitle">&nbsp;Automated Photo Manager</span> </span> <br>
+      <span id="title">Moments <span id="subtitle">&nbsp;Automated Photo Manager</span> </span> <br>
 
       <div class="rounded-bar" id="title-sep"></div>
 
@@ -138,13 +176,29 @@
 
         <br>
 
-        <div class="toggle">
-          <input type="checkbox" on:click={toggleShowSelectedOnly}/> 
-          <label>&nbsp;&nbsp;View Chosen Photos</label>
-        </div>
+        
       </div>
 
       <div class="right-half">
+        <div id="gallery-banner">
+
+          <div id="gallery-title">
+            Library
+          </div>
+
+          <div id="gallery-dropdowns-container">
+            <select class="gallery-dropdown" on:change={handleChangeShow}>
+              <option value="show_all">Show All</option>
+              <option value="show_chosen">Show Chosen (#)</option>
+            </select>
+
+            <select class="gallery-dropdown" on:change={handleChangeDisplay}>
+              <option value="option1">Gallery View</option>
+              <option value="option2">Moments View</option>
+            </select>
+          </div>
+        </div>
+
         <PhotoGallery {buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
       </div> 
 

@@ -50,7 +50,50 @@ body {
   height: 100%;
   margin-left: auto;
   margin-right: 5px;
-  /*background-color: blue;*/
+  /*background-color: green;*/
+}
+
+#gallery-banner {
+  /*background-color: red;*/
+  width: 983px; /*don't like how this is hard coded... fix later - same as gallery*/
+  padding-top: 10px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between; /* Aligns items with space between them */
+  align-items: center; /* Aligns items vertically */
+}
+
+#gallery-title {
+  font-size: 25px;
+  font-style: italic;
+}
+
+#gallery-dropdowns-container {
+  margin-right: 25px;
+}
+
+.gallery-dropdown {
+  background-color: rgba(255, 255, 255, 0); /* transparent background */
+  border: 1px solid white;
+  font-size: 12px;
+  font-family: 'Gill Sans';
+  font-weight: 350;
+  color: white;
+  width: 110px; /* Set width */
+  height: 32px; /* Set height */
+  border-radius: 20px; /* Make it circular */
+  padding-left: 4px; /* Remove padding */
+  margin-left: 5px;
+}
+
+/* Style for dropdown options */
+#gallery-dropdown option {
+  background-color: rgba(255, 255, 255, 0); /* transparent background */
+  border: none;
+  font-size: 12px;
+  font-family: 'Gill Sans';
+  font-weight: 350;
+  color: white;
 }
 
 #view-title {
@@ -78,7 +121,6 @@ body {
 .question {
   width: 15px;
   height: 15px;
-  
 }
 
 .tooltip {

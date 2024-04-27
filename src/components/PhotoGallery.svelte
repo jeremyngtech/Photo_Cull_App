@@ -32,7 +32,6 @@
                     <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
                         {#if buttonStates[index]}
                             <span class="check-text">✓</span>
-                            <!--<img src="./src/assets/checkmark.svg" alt="Checkmark" class="checkmark-icon">-->
                         {/if}
                     </button>
                 {/if}
