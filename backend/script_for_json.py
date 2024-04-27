@@ -90,33 +90,75 @@ def find_similar_photos(data):
                 photos_dict[data[j]["filename"]].similar_photos.add(data[i]["filename"])
     return data
 
-def find_moments():
-    moments_json_builder = []
-    moments_dict = {}
-    for photo in photos_dict.values():
-        # Should belong to a moment
-        for moment in moments_dict.values():
-            print(f"Moment photos are {moment.photos} and similar photos are {photo.similar_photos}")
-            # Set of photos in the moment, by name, will be converted to list later
-            for p in photo.similar_photos:
-                if p in moment.photos:
-                    moment.photos.union(photo.similar_photos)
-                    break
-        moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos=photo.similar_photos)
+# def find_moments():
+#     moments_json_builder = []
+#     moments_dict = {}
+#     for photo in photos_dict.values():
+#         # Should belong to a moment
+#         for moment in moments_dict.values():
+#             print(f"Moment photos are {moment.photos} and similar photos are {photo.similar_photos}")
+#             # Set of photos in the moment, by name, will be converted to list later
+#             for p in photo.similar_photos:
+#                 if p in moment.photos:
+#                     moment.photos.union(photo.similar_photos)
+#                     break
+#         moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos=photo.similar_photos)
                         
-            # else:
-            #     moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos=photo.similar_photos)
-        # else:
-        #     moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos={photo.filename})
+#             # else:
+#             #     moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos=photo.similar_photos)
+#         # else:
+#         #     moments_dict[photo.time] = Moment(photo.hash, photo.time, photo.location, photos={photo.filename})
 
-    for moment in moments_dict.values():
-        moments_json_builder.append({
-            "id": moment.id,
-            "location": moment.location,
-            "earliest_time": moment.date,
-            "photos": list(moment.photos),
+#     for moment in moments_dict.values():
+#         moments_json_builder.append({
+#             "id": moment.id,
+#             "location": moment.location,
+#             "earliest_time": moment.date,
+#             "photos": list(moment.photos),
+#         })
+#     return moments_json_builder
+
+def find_moments():
+    moments = []
+    processed_photos = set()
+
+    for photo_filename, photo in photos_dict.items():
+        if photo_filename in processed_photos:
+            continue
+
+        # This will be the set of all similar photos for the current moment
+        all_similar = set(photo.similar_photos)
+        
+        # Initialize the stack with the current photo's similar photos
+        stack = list(photo.similar_photos)
+        
+        while stack:
+            current_similar = stack.pop()
+            if current_similar not in processed_photos:
+                # Mark the photo as processed
+                processed_photos.add(current_similar)
+                
+                # Get the similar photos of the current similar photo
+                current_similar_photos = photos_dict[current_similar].similar_photos
+                
+                # Add to the stack any new photos that we haven't already processed
+                stack.extend(current_similar_photos - all_similar)
+                
+                # Add the current similar photos to the all_similar set
+                all_similar.update(current_similar_photos)
+
+        # Create a moment with the merged set of similar photos
+        moments.append({
+            "id": photo.hash,  # or some other identifier for the moment
+            "location": photo.location,
+            "earliest_time": photo.time,
+            "photos": list(all_similar)
         })
-    return moments_json_builder
+
+        # Mark the original photo as processed
+        processed_photos.add(photo_filename)
+
+    return moments
 
 def process_photos(directory, test=False):
     photos_json = []

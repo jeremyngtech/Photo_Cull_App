@@ -188,132 +188,15 @@
             ],
             "earliest_time": "2024:01:04 14:57:35",
             "photos": [
-                "IMG_3753.jpg"
-            ]
-        },
-        {
-            "id": "a18e3f4156d99636",
-            "location": [
-                55.94856944444444,
-                -3.1967527777777778
-            ],
-            "earliest_time": "2024:01:04 14:57:37",
-            "photos": [
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG",
+                "IMG_3988.JPG",
                 "IMG_3752.jpg",
-                "IMG_3993.JPG"
-            ]
-        },
-        {
-            "id": "fc83d83e239ca2d8",
-            "location": [
-                55.94891111111111,
-                -3.200152777777778
-            ],
-            "earliest_time": "2024:01:04 16:24:32",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
                 "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG",
-                "IMG_3989.JPG"
-            ]
-        },
-        {
-            "id": "f887f82e039ca3d4",
-            "location": [
-                55.94891111111111,
-                -3.200152777777778
-            ],
-            "earliest_time": "2024:01:04 16:24:34",
-            "photos": [
-                "IMG_3992.JPG",
-                "IMG_3986.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG",
-                "IMG_3989.JPG"
-            ]
-        },
-        {
-            "id": "fc87d82e239ca2d4",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "earliest_time": "2024:01:04 16:24:35",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
-                "IMG_3986.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG"
-            ]
-        },
-        {
-            "id": "fc87f82e239ca2d0",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "earliest_time": "2024:01:04 16:24:36",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
-                "IMG_3986.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG",
-                "IMG_3989.JPG"
-            ]
-        },
-        {
-            "id": "fc87f82e239ca2d0",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "earliest_time": "2024:01:04 16:24:37",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
-                "IMG_3986.JPG",
-                "IMG_3990.JPG",
-                "IMG_3993.JPG",
-                "IMG_3989.JPG"
-            ]
-        },
-        {
-            "id": "fc87d82e239ca2d4",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "earliest_time": "2024:01:04 16:24:38",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3986.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG",
-                "IMG_3989.JPG"
-            ]
-        },
-        {
-            "id": "e19ff2003ec3c837",
-            "location": [
-                55.94905,
-                -3.200530555555556
-            ],
-            "earliest_time": "2024:01:04 16:24:41",
-            "photos": [
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
-                "IMG_3986.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
                 "IMG_3753.jpg",
-                "IMG_3989.JPG"
+                "IMG_3986.JPG"
             ]
         }
     ]
