@@ -1,177 +1,175 @@
 {
     "Photos": [
         {
-            "filename": "IMG_1765.JPG",
+            "filename": "IMG_3752.JPG",
             "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
             "hash": "df9380088dff7a30",
             "blur_value": 241.8767325234351,
             "date_time": "2024:01:04 16:40:25",
             "location": "Not available",
-            "similar_photos": []
+            "similar_photos": [],
+            "selected": true
         },
         {
-            "filename": "IMG_3752.jpg",
-            "path": "../src/lib/jeremy_lib\\IMG_3752.jpg",
-            "hash": "818e1956b9262fed",
-            "blur_value": 334.0196640954209,
-            "date_time": "2024:01:04 14:57:35",
-            "location": [
-                55.94856944444444,
-                -3.1967527777777778
-            ],
-            "similar_photos": [
-                "IMG_3753.jpg"
-            ]
-        },
-        {
-            "filename": "IMG_3753.jpg",
-            "path": "../src/lib/jeremy_lib\\IMG_3753.jpg",
-            "hash": "a18e3f4156d99636",
-            "blur_value": 392.24935327416586,
-            "date_time": "2024:01:04 14:57:37",
-            "location": [
-                55.94856944444444,
-                -3.1967527777777778
-            ],
-            "similar_photos": [
-                "IMG_3752.jpg",
-                "IMG_3993.JPG"
-            ]
+            "filename": "IMG_3753.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3986.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3986.JPG",
-            "hash": "fc83d83e239ca2d8",
-            "blur_value": 106.04067829453119,
-            "date_time": "2024:01:04 16:24:32",
-            "location": [
-                55.94891111111111,
-                -3.200152777777778
-            ],
-            "similar_photos": [
-                "IMG_3988.JPG",
-                "IMG_3989.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3992.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3988.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3988.JPG",
-            "hash": "f887f82e039ca3d4",
-            "blur_value": 688.089958667857,
-            "date_time": "2024:01:04 16:24:34",
-            "location": [
-                55.94891111111111,
-                -3.200152777777778
-            ],
-            "similar_photos": [
-                "IMG_3986.JPG",
-                "IMG_3989.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3992.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3989.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3989.JPG",
-            "hash": "fc87d82e239ca2d4",
-            "blur_value": 757.5193299035809,
-            "date_time": "2024:01:04 16:24:35",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "similar_photos": [
-                "IMG_3986.JPG",
-                "IMG_3988.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3992.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": true
         },
         {
             "filename": "IMG_3990.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3990.JPG",
-            "hash": "fc87f82e239ca2d0",
-            "blur_value": 741.4869159332264,
-            "date_time": "2024:01:04 16:24:36",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "similar_photos": [
-                "IMG_3986.JPG",
-                "IMG_3988.JPG",
-                "IMG_3989.JPG",
-                "IMG_3991.JPG",
-                "IMG_3992.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3991.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3991.JPG",
-            "hash": "fc87f82e239ca2d0",
-            "blur_value": 820.000394685499,
-            "date_time": "2024:01:04 16:24:37",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "similar_photos": [
-                "IMG_3986.JPG",
-                "IMG_3988.JPG",
-                "IMG_3989.JPG",
-                "IMG_3990.JPG",
-                "IMG_3992.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3992.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3992.JPG",
-            "hash": "fc87d82e239ca2d4",
-            "blur_value": 740.2762286591857,
-            "date_time": "2024:01:04 16:24:38",
-            "location": [
-                55.94905555555555,
-                -3.2005194444444447
-            ],
-            "similar_photos": [
-                "IMG_3986.JPG",
-                "IMG_3988.JPG",
-                "IMG_3989.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3993.JPG"
-            ]
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
         },
         {
             "filename": "IMG_3993.JPG",
-            "path": "../src/lib/jeremy_lib\\IMG_3993.JPG",
-            "hash": "e19ff2003ec3c837",
-            "blur_value": 275.88872739561674,
-            "date_time": "2024:01:04 16:24:41",
-            "location": [
-                55.94905,
-                -3.200530555555556
-            ],
-            "similar_photos": [
-                "IMG_3753.jpg",
-                "IMG_3986.JPG",
-                "IMG_3988.JPG",
-                "IMG_3989.JPG",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3992.JPG"
-            ]
-        }
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_3994.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_3995.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_3996.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_3997.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_3998.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_7177.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": true
+        },
+        {
+            "filename": "IMG_7178.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        },
+        {
+            "filename": "IMG_7179.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_1765.JPG",
+            "hash": "df9380088dff7a30",
+            "blur_value": 241.8767325234351,
+            "date_time": "2024:01:04 16:40:25",
+            "location": "Not available",
+            "similar_photos": [],
+            "selected": false
+        } 
     ],
     "Moments": [
       {

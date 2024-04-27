@@ -5,8 +5,8 @@
   //import jsonLibrary from './jeremy-library.JSON';
 
   let jsonLibrary;
-  let photoFilenames = [];
-  let bestPhotos = [];
+  let photoFilenames = []; //needs to be all upper case
+  let bestPhotos = []; // needs to be all upper case
 
   // Fetch JSON data when the component is mounted - code from ChatGPT
   async function fetchData() {
@@ -23,8 +23,11 @@
     jsonLibrary.Moments.forEach(moment => {
       //console.log("success loop");
       photoFilenames = photoFilenames.concat(moment.photos);
+      photoFilenames = photoFilenames.map(name => name.toUpperCase());
       bestPhotos = bestPhotos.concat(moment.best_photos);
+      bestPhotos = bestPhotos.map(name => name.toUpperCase());
     });
+    console.log(bestPhotos);
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   }
@@ -65,14 +68,39 @@
   }
 
   // Initialize buttonStates in App.svelte
-  let fixedCull = [0, 2, 3, 4, 5, 8, 9, 10, 11, 22, 25, 26, 27, 30, 31, 34, 36, 40, 43, 45, 47];
+  //let fixedCull = [0, 2, 3, 4, 5, 8, 9, 10, 11, 22, 25, 26, 27, 30, 31, 34, 36, 40, 43, 45, 47];
 
-  let buttonStates = new Array(photoFilenames.length).fill(false);
+  //array of cutton "indices", based on indices in photoFilenames - there has to be better data structures but later problem
+  let buttonStates = new Array(photoFilenames.length).fill(false); 
 
   let previousStates = new Array(photoFilenames.length).fill(false);
+
+  function setButtonStatesCull() {
+    // Store previous button states
+    previousStates = buttonStates.slice();
+
+    // Reset all button states to false
+    buttonStates = buttonStates.map(() => false);
+    
+    console.log("test best", bestPhotos)
+    // Set button state to true for photos in bestPhotos
+    photoFilenames.forEach((filename, index) => {
+      const photo = jsonLibrary.Photos.find(photo => photo.filename === filename);
+      console.log(filename); 
+      console.log("photo fn", photo); 
+      
+      if (photo && bestPhotos.includes(photo.filename)) {
+        buttonStates[index] = true;
+      }
+      
+    });
+
+    console.log("prev", previousStates);
+    console.log("new", buttonStates);
+  }
   
   // Note: a cull will override all current selections
-  function setButtonStatesCull(indices_arr) {
+  /*function setButtonStatesCull(indices_arr) {
     //previousStates = buttonStates;
     for (let i = 0; i < photoFilenames.length; i++) {
       previousStates[i] = buttonStates[i];
@@ -85,7 +113,7 @@
         buttonStates[i] = false;
       }
     }
-  }
+  }*/
 
   function deselectAll() {
     for (let i = 0; i < photoFilenames.length; i++) {
@@ -162,7 +190,7 @@
 
         {#if editMode}
           <p>
-            <button class="option-button" on:click={() => setButtonStatesCull(fixedCull)}>Apply Auto-Cull</button>
+            <button class="option-button" on:click={() => setButtonStatesCull()}>Apply Auto-Cull</button>
             <button class="option-button" on:click={() => undoCull()}>Undo Auto-Cull</button>
             <button class="option-button" on:click={() => deselectAll()}>Deselect All </button>
           </p>

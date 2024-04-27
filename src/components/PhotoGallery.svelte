@@ -5,7 +5,7 @@
     function getPhotoPath(filename) {
         //return './jeremy_lib/IMG_6657.jpg';
         let path = './src/lib/jeremy_lib/' + filename;
-        console.log(path);
+        //console.log(path);
         return path; // Assuming photos are in the 'photos' directory inside the 'static' directory
     }
 
