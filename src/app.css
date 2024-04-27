@@ -82,7 +82,7 @@ body {
   width: 110px; /* Set width */
   height: 32px; /* Set height */
   border-radius: 20px; /* Make it circular */
-  padding-left: 4px; /* Remove padding */
+  padding-left: 4px; 
   margin-left: 5px;
 }
 

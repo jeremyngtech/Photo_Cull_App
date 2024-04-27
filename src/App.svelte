@@ -67,14 +67,12 @@
     'Troja Chateau': 'IMG_6455.jpg',
   }
 
-  // Initialize buttonStates in App.svelte
-  //let fixedCull = [0, 2, 3, 4, 5, 8, 9, 10, 11, 22, 25, 26, 27, 30, 31, 34, 36, 40, 43, 45, 47];
-
   //array of cutton "indices", based on indices in photoFilenames - there has to be better data structures but later problem
   let buttonStates = new Array(photoFilenames.length).fill(false); 
 
   let previousStates = new Array(photoFilenames.length).fill(false);
 
+  // Note: a cull will override all current selections - help from ChatGPT
   function setButtonStatesCull() {
     // Store previous button states
     previousStates = buttonStates.slice();
@@ -82,38 +80,21 @@
     // Reset all button states to false
     buttonStates = buttonStates.map(() => false);
     
-    console.log("test best", bestPhotos)
+    //console.log("test best", bestPhotos)
     // Set button state to true for photos in bestPhotos
     photoFilenames.forEach((filename, index) => {
       const photo = jsonLibrary.Photos.find(photo => photo.filename === filename);
-      console.log(filename); 
-      console.log("photo fn", photo); 
+      //console.log(filename); 
+      //console.log("photo fn", photo); 
       
       if (photo && bestPhotos.includes(photo.filename)) {
         buttonStates[index] = true;
       }
-      
     });
 
-    console.log("prev", previousStates);
-    console.log("new", buttonStates);
+    //console.log("prev", previousStates);
+    //console.log("new", buttonStates);
   }
-  
-  // Note: a cull will override all current selections
-  /*function setButtonStatesCull(indices_arr) {
-    //previousStates = buttonStates;
-    for (let i = 0; i < photoFilenames.length; i++) {
-      previousStates[i] = buttonStates[i];
-    }
-    console.log(previousStates);
-    for (let i = 0; i < photoFilenames.length; i++) {
-      if (indices_arr.includes(i)){
-        buttonStates[i] = true;
-      } else {
-        buttonStates[i] = false;
-      }
-    }
-  }*/
 
   function deselectAll() {
     for (let i = 0; i < photoFilenames.length; i++) {
@@ -163,8 +144,6 @@
       <AlbumGallery {albumThumbnails}/>
 
       <div class="rounded-bar" id='view-sep'></div>
-
-      
 
       <div class="view-scroll">
 
@@ -217,7 +196,7 @@
           <div id="gallery-dropdowns-container">
             <select class="gallery-dropdown" on:change={handleChangeShow}>
               <option value="show_all">Show All</option>
-              <option value="show_chosen">Show Chosen (#)</option>
+              <option value="show_chosen">Show Chosen ({buttonStates.filter(state => state === true).length})</option>
             </select>
 
             <select class="gallery-dropdown" on:change={handleChangeDisplay}>
@@ -227,7 +206,7 @@
           </div>
         </div>
 
-        <PhotoGallery {buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
+        <PhotoGallery bind:buttonStates={buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
       </div> 
 
         

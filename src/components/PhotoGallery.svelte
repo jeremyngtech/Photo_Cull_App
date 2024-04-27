@@ -14,6 +14,7 @@
     // Function to toggle the click state of a specific button
     function handleClick(index) {
         buttonStates[index] = !buttonStates[index];
+        console.log(buttonStates)
     }
 
     export let showSelectedOnly = false;
@@ -48,7 +49,7 @@
         display: grid;
         grid-template-columns: 315px 315px 315px;
         grid-gap: 8px;
-        height: 95%;
+        height: 87%;
         width: 983px; /*don't like how this is hard coded... fix later*/
         overflow-y: auto;
         /*background-color: blue;*/
