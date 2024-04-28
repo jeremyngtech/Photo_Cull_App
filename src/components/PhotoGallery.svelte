@@ -31,27 +31,62 @@
     // Define the initial state
     let expandedImage = null;
 
+    $: masterIndex = 0;
+
+    // Function to determine if the left button should be disabled
+    let isLeftDisabled = false;
+
+    // Function to determine if the right button should be disabled
+    let isRightDisabled = false;
+    
+    function checkDisabled() {
+        isLeftDisabled = masterIndex == 0;
+        isRightDisabled = masterIndex == photoFilenames.length - 1;
+    }
+
     // Function to toggle the expanded state for a specific image
     function toggleExpanded(image) {
         expandedImage = image === expandedImage ? null : image;
+        masterIndex = photoFilenames.indexOf(expandedImage.toUpperCase());
+        checkDisabled();
     }
 
     // Create an event dispatcher to handle clicks on the background
     const dispatch = createEventDispatcher();
 
-    // Function to handle clicks on the background
-    function handleDispatchClick(event) {
-        if (event.target === event.currentTarget) {
-            toggleExpanded(null);
+    // Function to navigate to the previous image
+    function goToPrevious() {
+        masterIndex = photoFilenames.indexOf(expandedImage.toUpperCase());
+        if (masterIndex != 0) {
+            expandedImage = photoFilenames[masterIndex - 1];
+            masterIndex -= 1;
         }
+        checkDisabled();
     }
+
+    // Function to navigate to the next image
+    function goToNext() {
+        masterIndex = photoFilenames.indexOf(expandedImage.toUpperCase());
+        if (masterIndex != photoFilenames.length - 1) {
+            expandedImage = photoFilenames[masterIndex + 1];
+            masterIndex += 1;
+        }
+        checkDisabled();
+    }
+
+    
+    
 
 </script>
 
 {#if expandedImage !== null}
-    <div class="expanded-overlay" on:click={() => handleDispatchClick}>
-        <button class="close-button" on:click={() => toggleExpanded(null)}>×</button>
-        <img class="expanded-image" src={expandedImage} alt="Expanded Image" />
+    <div class="expanded-overlay">
+        <button class="overlay-buttons" id="close-button" on:click={() => toggleExpanded(null)}>×</button>
+        <img class="expanded-image" src={getPhotoPath(expandedImage)} alt="Expanded Image" />
+        {#if !showSelectedOnly}
+            <button class="overlay-buttons" id="nav-button-left" on:click={goToPrevious} class:disabled={isLeftDisabled}>&lt;</button>
+            <button class="overlay-buttons" id="nav-button-right" on:click={goToNext} class:disabled={isRightDisabled}>&gt;</button>
+        {/if}
     </div>
 {/if}
 
@@ -73,7 +108,7 @@
                                 <img class="expand-icon" src="./src/assets/expand.png" alt="expand">
                             </button>-->
                             <img class="expand-button" src="./src/assets/expand-5.png" alt="expand" 
-                                on:click={() => toggleExpanded(getPhotoPath(filename))}>
+                                on:click={() => toggleExpanded(filename)}>
                         {/if}
                     </div>
                 {/if}
@@ -100,7 +135,7 @@
                             </button>
                         {:else}
                             <img class="expand-button" src="./src/assets/expand-5.png" alt="expand" 
-                                on:click={() => toggleExpanded(getPhotoPath(filename))}>
+                                on:click={() => toggleExpanded(filename)}>
                         {/if}
                     </div>
                     {/if}
@@ -245,10 +280,7 @@
         max-height: 90%; /* Adjust as needed */
     }
 
-    .close-button {
-        position: absolute;
-        top: 15px;
-        right: 19px;
+    .overlay-buttons {
         background-color: transparent;
         border: none;
         color: white;
@@ -257,5 +289,31 @@
         font-weight: 350;
         cursor: pointer;
         z-index: 1000; /* Ensure it's above the overlay */
+    }
+
+    #close-button {
+        position: absolute;
+        top: 15px;
+        right: 19px;
+    }
+
+    #nav-button-left {
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 35px;
+    }
+
+    #nav-button-right {
+        font-size: 20px;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        right: 35px;
+    }
+
+    .disabled {
+        color: gray;
+        pointer-events: none; /* Disable clicks */
     }
 </style>

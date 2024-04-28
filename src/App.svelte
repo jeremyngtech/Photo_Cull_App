@@ -183,10 +183,12 @@
             <button class="option-button" on:click={() => deselectAll()}>Deselect All </button>
           </p>
           <p id="cull-settings">
-            Adjust Auto-Cull Settings: <br>
+            <!--Adjust Auto-Cull Settings: <br>
             Blurriness Scroll Bar <br>
             Brightness Scroll Bar <br>
-            Sharpness Scroll Bar
+            Sharpness Scroll Bar-->
+            * Auto-Cull chooses the least blurry photos from each moment. <br>
+            Additional options to adjust Auto-Cull based on personal preferences are in development -- stay tuned!
           </p>
         {/if}
 
