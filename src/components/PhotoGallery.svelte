@@ -1,4 +1,5 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
 
     export let photoFilenames;
     // Function to get the path of each photo
@@ -25,70 +26,87 @@
 
     export let momentsView = false;
 
+
+    //Expanding image code - help from chatGPT
+    // Define the initial state
+    let expandedImage = null;
+
+    // Function to toggle the expanded state for a specific image
+    function toggleExpanded(image) {
+        expandedImage = image === expandedImage ? null : image;
+    }
+
+    // Create an event dispatcher to handle clicks on the background
+    const dispatch = createEventDispatcher();
+
+    // Function to handle clicks on the background
+    function handleDispatchClick(event) {
+        if (event.target === event.currentTarget) {
+            toggleExpanded(null);
+        }
+    }
+
 </script>
 
-
-<!--<div class="gallery">
-    {#each photoFilenames as filename, index}
-        {#if !showSelectedOnly || buttonStates[index]}
-            <div class="img-container">
-                <img class="image" src={getPhotoPath(filename)} alt={filename} />
-                {#if editMode}
-                    <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
-                        {#if buttonStates[index]}
-                            <span class="check-text">✓</span>
-                        {/if}
-                    </button>
-                {/if}
-            </div>
-        {/if}
-    {/each}
-</div>-->
-
-{#if momentsView == false}
-    <div class="gallery">
-        {#each photoFilenames as filename, index}
-            {#if !showSelectedOnly || buttonStates[index]}
-                <div class="img-container">
-                    <img class="image" src={getPhotoPath(filename)} alt={filename} />
-                    {#if editMode}
-                        <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
-                            {#if buttonStates[index]}
-                                <span class="check-text">✓</span>
-                            {/if}
-                        </button>
-                    {/if}
-                </div>
-            {/if}
-        {/each}
+{#if expandedImage !== null}
+    <div class="expanded-overlay" on:click={() => handleDispatchClick}>
+        <button class="close-button" on:click={() => toggleExpanded(null)}>×</button>
+        <img class="expanded-image" src={expandedImage} alt="Expanded Image" />
     </div>
-{:else}
+{/if}
 
-    <div class="moments">
-        {#each moments as moment, mom_index}
-        <div class="moment">
-            <h3>Moment {mom_index + 1}</h3>
-            <div class="gallery" id="moment-photos">
-            {#each moment.photos as filename, index}
+<div class="display-container">
+    {#if momentsView == false}
+        <div class="gallery">
+            {#each photoFilenames as filename, index}
                 {#if !showSelectedOnly || buttonStates[index]}
-                <div class="img-container">
-                    <img class="image" src={getPhotoPath(filename)} alt={filename} />
-                    {#if editMode}
-                    <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
-                        {#if buttonStates[index]}
-                        <span class="check-text">✓</span>
+                    <div class="img-container">
+                        <img class="image" src={getPhotoPath(filename)} alt={filename} />
+                        {#if editMode}
+                            <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
+                                {#if buttonStates[index]}
+                                    <span class="check-text">✓</span>
+                                {/if}
+                            </button>
+                        {:else}
+                            <button class="expand-button" on:click={() => toggleExpanded(getPhotoPath(filename))}>Expand</button>
                         {/if}
-                    </button>
-                    {/if}
-                </div>
+                    </div>
                 {/if}
             {/each}
-            </div>
         </div>
-        {/each}
-    </div>
+    {:else}
+        <div class="moments">
+            {#each moments as moment, mom_index}
+            <div class="moment">
+                <h3>Moment {mom_index + 1}</h3>
+                <div class="gallery" id="moment-photos">
+                {#each moment.photos as filename, index}
+                    {#if !showSelectedOnly || buttonStates[index]}
+                    <div class="img-container">
+                        <img class="image" src={getPhotoPath(filename)} alt={filename} />
+                        {#if editMode}
+                            <button class:clicked={buttonStates[index]}
+                                on:click={() => handleClick(index)} 
+                                class="toggle-button">
 
-{/if}
+                                {#if buttonStates[index]}
+                                    <span class="check-text">✓</span>
+                                {/if}
+                            </button>
+                        {:else}
+                            <button class="expand-button" on:click={() => toggleExpanded(getPhotoPath(filename))}>Expand</button>
+                        {/if}
+                    </div>
+                    {/if}
+                {/each}
+                </div>
+            </div>
+            {/each}
+        </div>
+    {/if}
+
+</div>
 
 
 <style>
@@ -98,7 +116,7 @@
         display: grid;
         grid-template-columns: 315px 315px 315px;
         grid-gap: 8px;
-        height: 87%;
+        height: 607px;
         width: 983px; /*don't like how this is hard coded... fix later*/
         overflow-y: auto;
         /*background-color: blue;*/
@@ -129,7 +147,7 @@
     }
 
     .moments {
-        height: 87%;
+        height: 607px;
         width: 984px;
         overflow-y: auto;
     }
@@ -157,6 +175,7 @@
         grid-template-columns: 315px 315px 315px;
         grid-gap: 8px;
         width: 983px;
+        height: auto;
         overflow-y: visible;
     }
 
@@ -182,11 +201,44 @@
         color: white;
     }
 
-    .checkmark-icon {
+    .display-container {
+        position: relative;
+    }
+
+    .expand-button {
+        position: absolute; 
+        top: 17px; 
+        right: 23px;
+        cursor: pointer;
+    }
+
+    .expanded-overlay {
         position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 10px;
-        height: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999; /* Ensure it's above other content */
+    }
+
+    .expanded-image {
+        max-width: 90%; /* Adjust as needed */
+        max-height: 90%; /* Adjust as needed */
+    }
+
+    .close-button {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1000; /* Ensure it's above the overlay */
     }
 </style>
