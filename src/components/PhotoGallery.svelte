@@ -21,14 +21,18 @@
 
     export let editMode;
 
+    export let moments;
+
+    export let momentsView = false;
+
 </script>
 
 
-<div class="gallery">
+<!--<div class="gallery">
     {#each photoFilenames as filename, index}
         {#if !showSelectedOnly || buttonStates[index]}
             <div class="img-container">
-                <img src={getPhotoPath(filename)} alt={filename} />
+                <img class="image" src={getPhotoPath(filename)} alt={filename} />
                 {#if editMode}
                     <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
                         {#if buttonStates[index]}
@@ -39,7 +43,52 @@
             </div>
         {/if}
     {/each}
-</div>
+</div>-->
+
+{#if momentsView == false}
+    <div class="gallery">
+        {#each photoFilenames as filename, index}
+            {#if !showSelectedOnly || buttonStates[index]}
+                <div class="img-container">
+                    <img class="image" src={getPhotoPath(filename)} alt={filename} />
+                    {#if editMode}
+                        <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
+                            {#if buttonStates[index]}
+                                <span class="check-text">✓</span>
+                            {/if}
+                        </button>
+                    {/if}
+                </div>
+            {/if}
+        {/each}
+    </div>
+{:else}
+
+    <div class="moments">
+        {#each moments as moment, mom_index}
+        <div class="moment">
+            <h3>Moment {mom_index + 1}</h3>
+            <div class="gallery" id="moment-photos">
+            {#each moment.photos as filename, index}
+                {#if !showSelectedOnly || buttonStates[index]}
+                <div class="img-container">
+                    <img class="image" src={getPhotoPath(filename)} alt={filename} />
+                    {#if editMode}
+                    <button class:clicked={buttonStates[index]} on:click={() => handleClick(index)} class="toggle-button">
+                        {#if buttonStates[index]}
+                        <span class="check-text">✓</span>
+                        {/if}
+                    </button>
+                    {/if}
+                </div>
+                {/if}
+            {/each}
+            </div>
+        </div>
+        {/each}
+    </div>
+
+{/if}
 
 
 <style>
@@ -56,8 +105,7 @@
     }
 
     .gallery::-webkit-scrollbar {
-        width: 1px; /* Adjust as needed */
-        
+        width: 1px; /* Adjust as needed */  
     }
 
     .gallery::-webkit-scrollbar-thumb {
@@ -65,7 +113,7 @@
         border-radius: 3%;
     }
 
-    .gallery img {
+    .image {
         width: 315px;
         height: 315px; 
         overflow: hidden;
@@ -78,6 +126,38 @@
         width: 315px;
         height: 315px; /*was 375 with 2 columns*/
        /*background-color: red;*/
+    }
+
+    .moments {
+        height: 87%;
+        width: 984px;
+        overflow-y: auto;
+    }
+
+    .moments::-webkit-scrollbar {
+        width: 1px; /* Adjust as needed */  
+    }
+
+    .moments::-webkit-scrollbar-thumb {
+        background-color: #ccc; /* Adjust as needed */
+        border-radius: 3%;
+    }
+
+    .moment {
+        margin-bottom: 20px;
+    }
+
+    .moment h3 {
+        margin-bottom: 10px;
+    }
+
+    #moment-photos {
+        padding-bottom: 3px;
+        display: grid;
+        grid-template-columns: 315px 315px 315px;
+        grid-gap: 8px;
+        width: 983px;
+        overflow-y: visible;
     }
 
     .toggle-button {

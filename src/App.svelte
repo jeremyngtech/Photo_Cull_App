@@ -7,6 +7,7 @@
   let jsonLibrary;
   let photoFilenames = []; //needs to be all upper case
   let bestPhotos = []; // needs to be all upper case
+  let moments = [];
 
   // Fetch JSON data when the component is mounted - code from ChatGPT
   async function fetchData() {
@@ -19,6 +20,7 @@
     //console.log(data); // Log the response data
     jsonLibrary = data; // Assign the data to jsonLibrary
     //console.log("second", jsonLibrary);
+    moments = jsonLibrary.Moments;
 
     jsonLibrary.Moments.forEach(moment => {
       //console.log("success loop");
@@ -110,15 +112,22 @@
   }
 
   let showSelectedOnly = false;
-
   function handleChangeShow(event) {
     let selectedOption = event.target.value;
-    console.log(selectedOption);
     if (selectedOption == "show_chosen"){
-      console.log("change")
       showSelectedOnly = true;
     } else {
       showSelectedOnly = false;
+    }
+  }
+
+  let momentsView = false;
+  function handleChangeDisplay(event) {
+    let selectedOption = event.target.value;
+    if (selectedOption == "moments_view"){
+      momentsView = true;
+    } else {
+      momentsView = false;
     }
   }
 
@@ -200,13 +209,13 @@
             </select>
 
             <select class="gallery-dropdown" on:change={handleChangeDisplay}>
-              <option value="option1">Gallery View</option>
-              <option value="option2">Moments View</option>
+              <option value="gallery_view">Gallery View</option>
+              <option value="moments_view">Moments View</option>
             </select>
           </div>
         </div>
 
-        <PhotoGallery bind:buttonStates={buttonStates} {photoFilenames} {showSelectedOnly} {editMode}/>
+        <PhotoGallery bind:buttonStates={buttonStates} {photoFilenames} {moments} {showSelectedOnly} {momentsView} {editMode}/>
       </div> 
 
         
