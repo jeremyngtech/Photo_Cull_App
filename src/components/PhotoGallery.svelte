@@ -69,7 +69,11 @@
                                 {/if}
                             </button>
                         {:else}
-                            <button class="expand-button" on:click={() => toggleExpanded(getPhotoPath(filename))}>Expand</button>
+                            <!--<button class="expand-button" on:click={() => toggleExpanded(getPhotoPath(filename))}>
+                                <img class="expand-icon" src="./src/assets/expand.png" alt="expand">
+                            </button>-->
+                            <img class="expand-button" src="./src/assets/expand-5.png" alt="expand" 
+                                on:click={() => toggleExpanded(getPhotoPath(filename))}>
                         {/if}
                     </div>
                 {/if}
@@ -78,24 +82,25 @@
     {:else}
         <div class="moments">
             {#each moments as moment, mom_index}
-            <div class="moment">
-                <h3>Moment {mom_index + 1}</h3>
+            <div class="moment" id="moment_{mom_index}">
+                <div class="moment-title">Moment {mom_index + 1}</div>
                 <div class="gallery" id="moment-photos">
                 {#each moment.photos as filename, index}
-                    {#if !showSelectedOnly || buttonStates[index]}
+                    {#if !showSelectedOnly || buttonStates[photoFilenames.indexOf(filename.toUpperCase())]}
                     <div class="img-container">
                         <img class="image" src={getPhotoPath(filename)} alt={filename} />
                         {#if editMode}
-                            <button class:clicked={buttonStates[index]}
-                                on:click={() => handleClick(index)} 
+                            <button class:clicked={buttonStates[photoFilenames.indexOf(filename.toUpperCase())]}
+                                on:click={() => handleClick(photoFilenames.indexOf(filename.toUpperCase()))} 
                                 class="toggle-button">
 
-                                {#if buttonStates[index]}
+                                {#if buttonStates[photoFilenames.indexOf(filename.toUpperCase())]}
                                     <span class="check-text">✓</span>
                                 {/if}
                             </button>
                         {:else}
-                            <button class="expand-button" on:click={() => toggleExpanded(getPhotoPath(filename))}>Expand</button>
+                            <img class="expand-button" src="./src/assets/expand-5.png" alt="expand" 
+                                on:click={() => toggleExpanded(getPhotoPath(filename))}>
                         {/if}
                     </div>
                     {/if}
@@ -119,7 +124,6 @@
         height: 607px;
         width: 983px; /*don't like how this is hard coded... fix later*/
         overflow-y: auto;
-        /*background-color: blue;*/
     }
 
     .gallery::-webkit-scrollbar {
@@ -150,6 +154,7 @@
         height: 607px;
         width: 984px;
         overflow-y: auto;
+        padding-top: 0px;
     }
 
     .moments::-webkit-scrollbar {
@@ -165,7 +170,14 @@
         margin-bottom: 20px;
     }
 
-    .moment h3 {
+    #moment_0 {
+        margin-top: 0px;
+    }
+
+    .moment-title {
+        font-family: Didot;
+        font-size: 17px;
+        font-weight: 600;
         margin-bottom: 10px;
     }
 
@@ -208,8 +220,11 @@
     .expand-button {
         position: absolute; 
         top: 17px; 
-        right: 23px;
+        right: 17px;
         cursor: pointer;
+        width: 16px;
+        height: 16px;
+        filter: invert(1);
     }
 
     .expanded-overlay {
@@ -233,11 +248,13 @@
     .close-button {
         position: absolute;
         top: 15px;
-        right: 20px;
+        right: 19px;
         background-color: transparent;
         border: none;
         color: white;
-        font-size: 20px;
+        font-size: 30px;
+        font-family: 'Gill Sans';
+        font-weight: 350;
         cursor: pointer;
         z-index: 1000; /* Ensure it's above the overlay */
     }
