@@ -210,9 +210,9 @@
     }
 
     .moment-title {
-        font-family: Didot;
+        font-family: "Gill Sans";
         font-size: 17px;
-        font-weight: 600;
+        font-weight: 500;
         margin-bottom: 10px;
     }
 
