@@ -301,7 +301,7 @@
         font-size: 20px;
         position: absolute;
         top: 50%;
-        left: 35px;
+        left: 28px;
     }
 
     #nav-button-right {
@@ -309,7 +309,7 @@
         font-size: 20px;
         position: absolute;
         top: 50%;
-        right: 35px;
+        right: 28px;
     }
 
     .disabled {

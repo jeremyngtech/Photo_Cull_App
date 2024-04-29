@@ -79,7 +79,7 @@ body {
   font-family: 'Gill Sans';
   font-weight: 350;
   color: white;
-  width: 110px; /* Set width */
+  width: 115px; /* Set width */
   height: 32px; /* Set height */
   border-radius: 20px; /* Make it circular */
   padding-left: 4px; 
@@ -121,6 +121,7 @@ body {
 .question {
   width: 15px;
   height: 15px;
+  cursor: pointer;
 }
 
 .tooltip {
@@ -129,7 +130,7 @@ body {
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
+  visibility: visible;
   width: 150px;
   height: 115px;
   font-size: 12px;
@@ -144,13 +145,17 @@ body {
   left: 550%;
   transform: translateY(-50%);
   margin-left: -60px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
 }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #efefef;
+  font-size: 10px;
 }
 
 .toggle {
