@@ -2,7 +2,6 @@
   // @ts-nocheck
   import PhotoGallery from './components/PhotoGallery.svelte';
   import AlbumGallery from './components/AlbumGallery.svelte';
-  //import jsonLibrary from './jeremy-library.JSON';
 
   let jsonLibrary;
   let photoFilenames = []; //needs to be all upper case
@@ -198,10 +197,6 @@
             <button class="option-button" on:click={() => deselectAll()}>Deselect All </button>
           </p>
           <p id="cull-settings">
-            <!--Adjust Auto-Cull Settings: <br>
-            Blurriness Scroll Bar <br>
-            Brightness Scroll Bar <br>
-            Sharpness Scroll Bar-->
             * Auto-Cull chooses the least blurry photos from each moment. <br>
             Additional options to adjust Auto-Cull based on personal preferences are in development -- stay tuned!
           </p>
@@ -219,6 +214,7 @@
             Library
           </div>
 
+          <!--View options-->
           <div id="gallery-dropdowns-container">
             <select class="gallery-dropdown" on:change={handleChangeShow}>
               <option value="show_all">Show All</option>
