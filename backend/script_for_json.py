@@ -4,7 +4,7 @@ import imagehash
 from Photo import Photo
 from Moment import Moment
 from PIL import Image
-from helpers import get_location, convert_to_datetime
+from helpers import get_location, convert_to_datetime, UnionFind
 from datetime import timedelta
 
 photos_dict = {}
@@ -118,6 +118,7 @@ def find_similar_photos(data):
 #         })
 #     return moments_json_builder
 
+
 def find_moments():
     moments = []
     processed_photos = set()
@@ -160,6 +161,39 @@ def find_moments():
 
     return moments
 
+# Reads jeremy-library.JSON and returns a list of Moment objects
+# Corresponding to the moments in the JSON file
+def get_moments_from_jeremy_lib():
+    # Load the JSON data from file
+    with open('../jeremy-library.JSON', 'r') as file:
+        data = json.load(file)
+
+    moments_data = data['Moments']
+    moments_list = []
+
+    # Create Moment objects from the data
+    for moment in moments_data:
+        # Assuming location can be a string or a list
+        if isinstance(moment['location'], list):
+            location = tuple(moment['location'])  # Convert list to tuple for immutability
+        else:
+            location = moment['location']
+
+        # Create a Moment object
+        new_moment = Moment(
+            id=moment['id'],
+            location=location,
+            earliest_time=moment['earliest_time'],
+            photos=moment['photos'],
+            best_photos=moment['best_photos']
+        )
+
+        # Add to the list of Moment objects
+        moments_list.append(new_moment)
+
+    return moments_list
+
+
 def process_photos(directory, test=False):
     photos_json = []
     for filename in os.listdir(directory):
@@ -188,7 +222,8 @@ if __name__ == '__main__':
         elif choice == '2' or choice == '3':
             photos_json = process_photos(jpeg_directory, choice == '3')
             data["Photos"].extend(photos_json)
-            data["Moments"].extend(find_moments())
+            get_moments_from_jeremy_lib()
+            #data["Moments"].extend(find_moments())
             with open(json_file_path, 'w') as file:
                 json.dump(data, file, indent=4)
         elif choice == '4':
