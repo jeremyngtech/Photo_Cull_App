@@ -91,6 +91,7 @@
 {/if}
 
 <div class="display-container">
+    <!--Gallery View Here-->
     {#if momentsView == false}
         <div class="gallery">
             {#each photoFilenames as filename, index}
@@ -115,10 +116,13 @@
             {/each}
         </div>
     {:else}
+    <!--Moments View Here-->
         <div class="moments">
             {#each moments as moment, mom_index}
             <div class="moment" id="moment_{mom_index}">
                 <div class="moment-title">Moment {mom_index + 1}</div>
+                <!--We use class gallery for each moment, so that we can easily form a grid that begins on a 
+                new line for each moment-->
                 <div class="gallery" id="moment-photos">
                 {#each moment.photos as filename, index}
                     {#if !showSelectedOnly || buttonStates[photoFilenames.indexOf(filename.toUpperCase())]}
