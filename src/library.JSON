@@ -31,8 +31,8 @@
             "hash": "a18e3f4156d99636",
             "blur_value": 392.24935327416586,
             "similar_photos": [
-                "IMG_3993.JPG",
-                "IMG_3752.jpg"
+                "IMG_3752.jpg",
+                "IMG_3993.JPG"
             ],
             "location": [
                 55.94856944444444,
@@ -47,11 +47,11 @@
             "hash": "fc83d83e239ca2d8",
             "blur_value": 106.04067829453119,
             "similar_photos": [
+                "IMG_3990.JPG",
                 "IMG_3991.JPG",
-                "IMG_3989.JPG",
                 "IMG_3988.JPG",
                 "IMG_3992.JPG",
-                "IMG_3990.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -67,11 +67,11 @@
             "hash": "f887f82e039ca3d4",
             "blur_value": 688.089958667857,
             "similar_photos": [
-                "IMG_3991.JPG",
-                "IMG_3989.JPG",
-                "IMG_3992.JPG",
                 "IMG_3990.JPG",
+                "IMG_3991.JPG",
                 "IMG_3986.JPG",
+                "IMG_3992.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -87,11 +87,11 @@
             "hash": "fc87d82e239ca2d4",
             "blur_value": 757.5193299035809,
             "similar_photos": [
+                "IMG_3990.JPG",
                 "IMG_3991.JPG",
                 "IMG_3988.JPG",
-                "IMG_3992.JPG",
-                "IMG_3990.JPG",
                 "IMG_3986.JPG",
+                "IMG_3992.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -108,10 +108,10 @@
             "blur_value": 741.4869159332264,
             "similar_photos": [
                 "IMG_3991.JPG",
-                "IMG_3989.JPG",
                 "IMG_3988.JPG",
-                "IMG_3992.JPG",
                 "IMG_3986.JPG",
+                "IMG_3992.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -127,11 +127,11 @@
             "hash": "fc87f82e239ca2d0",
             "blur_value": 820.000394685499,
             "similar_photos": [
-                "IMG_3989.JPG",
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
                 "IMG_3990.JPG",
+                "IMG_3988.JPG",
                 "IMG_3986.JPG",
+                "IMG_3992.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -147,11 +147,11 @@
             "hash": "fc87d82e239ca2d4",
             "blur_value": 740.2762286591857,
             "similar_photos": [
-                "IMG_3991.JPG",
-                "IMG_3989.JPG",
-                "IMG_3988.JPG",
                 "IMG_3990.JPG",
+                "IMG_3991.JPG",
+                "IMG_3988.JPG",
                 "IMG_3986.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
             ],
             "location": [
@@ -167,13 +167,13 @@
             "hash": "e19ff2003ec3c837",
             "blur_value": 275.88872739561674,
             "similar_photos": [
-                "IMG_3991.JPG",
-                "IMG_3989.JPG",
-                "IMG_3988.JPG",
                 "IMG_3753.jpg",
-                "IMG_3992.JPG",
                 "IMG_3990.JPG",
-                "IMG_3986.JPG"
+                "IMG_3991.JPG",
+                "IMG_3988.JPG",
+                "IMG_3986.JPG",
+                "IMG_3992.JPG",
+                "IMG_3989.JPG"
             ],
             "location": [
                 55.94905,
@@ -186,46 +186,49 @@
     "Moments": [
         {
             "id": "0",
-            "title": null,
-            "description": null,
+            "title": "No Title",
+            "description": "No Description",
             "date": "2024:01:04 16:40:25",
             "location": "Not available",
-            "Photos": [
+            "photos": [
                 "IMG_1765.JPG"
-            ]
+            ],
+            "best_photo": null
         },
         {
             "id": "1",
-            "title": null,
-            "description": null,
+            "title": "No Title",
+            "description": "No Description",
             "date": "2024:01:04 14:57:35",
             "location": [
                 55.94856944444444,
                 -3.1967527777777778
             ],
-            "Photos": [
+            "photos": [
                 "IMG_3753.jpg",
                 "IMG_3752.jpg"
-            ]
+            ],
+            "best_photo": null
         },
         {
             "id": "2",
-            "title": null,
-            "description": null,
+            "title": "No Title",
+            "description": "No Description",
             "date": "2024:01:04 16:24:32",
             "location": [
                 55.94891111111111,
                 -3.200152777777778
             ],
-            "Photos": [
-                "IMG_3991.JPG",
-                "IMG_3989.JPG",
-                "IMG_3988.JPG",
-                "IMG_3992.JPG",
+            "photos": [
                 "IMG_3990.JPG",
+                "IMG_3991.JPG",
+                "IMG_3988.JPG",
                 "IMG_3986.JPG",
+                "IMG_3992.JPG",
+                "IMG_3989.JPG",
                 "IMG_3993.JPG"
-            ]
+            ],
+            "best_photo": null
         }
     ]
 }

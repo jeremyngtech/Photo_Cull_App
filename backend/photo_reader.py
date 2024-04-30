@@ -41,6 +41,11 @@ def find_moments():
             moments_dict[label] = Moment(label, photo.timestamp, photo.location)
         print(f"Calling add for {photo.filename} to moment {label}")
         moments_dict[label].add_photo(photo.filename)
+    
+    # Set best photo after all moments established
+    for moment in moments_dict.values():
+        moment.set_best_photo(photos_dict)
+            
 
 def prepare_features(photo):
     """Prepare feature vector for clustering."""
@@ -77,7 +82,6 @@ def process_directory(directory, testing=False):
                     break
         find_similar_photos()
         find_moments()
-        print("Moments complete")
         return serialize_data()
     except Exception as e:
         logging.error(f"Error processing directory {directory}: {str(e)}")
