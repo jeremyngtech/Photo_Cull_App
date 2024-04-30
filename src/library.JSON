@@ -31,8 +31,8 @@
             "hash": "a18e3f4156d99636",
             "blur_value": 392.24935327416586,
             "similar_photos": [
-                "IMG_3752.jpg",
-                "IMG_3993.JPG"
+                "IMG_3993.JPG",
+                "IMG_3752.jpg"
             ],
             "location": [
                 55.94856944444444,
@@ -47,12 +47,17 @@
             "hash": "fc83d83e239ca2d8",
             "blur_value": 106.04067829453119,
             "similar_photos": [
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
+                "IMG_3994.JPG",
                 "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
                 "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3993.JPG",
+                "IMG_3990.JPG",
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94891111111111,
@@ -67,12 +72,17 @@
             "hash": "f887f82e039ca3d4",
             "blur_value": 688.089958667857,
             "similar_photos": [
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3994.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
                 "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3993.JPG",
+                "IMG_3990.JPG",
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94891111111111,
@@ -87,12 +97,17 @@
             "hash": "fc87d82e239ca2d4",
             "blur_value": 757.5193299035809,
             "similar_photos": [
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
-                "IMG_3993.JPG"
+                "IMG_3993.JPG",
+                "IMG_3990.JPG",
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94905555555555,
@@ -107,12 +122,17 @@
             "hash": "fc87f82e239ca2d0",
             "blur_value": 741.4869159332264,
             "similar_photos": [
-                "IMG_3991.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
+                "IMG_3993.JPG",
                 "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94905555555555,
@@ -127,12 +147,17 @@
             "hash": "fc87f82e239ca2d0",
             "blur_value": 820.000394685499,
             "similar_photos": [
-                "IMG_3990.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
-                "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3993.JPG",
+                "IMG_3989.JPG"
             ],
             "location": [
                 55.94905555555555,
@@ -147,12 +172,17 @@
             "hash": "fc87d82e239ca2d4",
             "blur_value": 740.2762286591857,
             "similar_photos": [
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
+                "IMG_3993.JPG",
                 "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94905555555555,
@@ -167,13 +197,18 @@
             "hash": "e19ff2003ec3c837",
             "blur_value": 275.88872739561674,
             "similar_photos": [
-                "IMG_3753.jpg",
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
+                "IMG_3753.jpg",
                 "IMG_3992.JPG",
-                "IMG_3989.JPG"
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
             ],
             "location": [
                 55.94905,
@@ -181,11 +216,211 @@
             ],
             "timestamp": "2024:01:04 16:24:41",
             "is_selected": false
+        },
+        {
+            "filename": "IMG_3994.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_3994.JPG",
+            "hash": "fd83f82e239c82d8",
+            "blur_value": 572.4121413234018,
+            "similar_photos": [
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
+                "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
+            ],
+            "location": [
+                55.949036111111106,
+                -3.200527777777778
+            ],
+            "timestamp": "2024:01:04 16:24:47",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_3995.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_3995.JPG",
+            "hash": "f08ff13c679803f0",
+            "blur_value": 606.0281718089154,
+            "similar_photos": [
+                "IMG_3996.JPG",
+                "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
+            ],
+            "location": [
+                55.94905,
+                -3.2005222222222223
+            ],
+            "timestamp": "2024:01:04 16:24:52",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_3996.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_3996.JPG",
+            "hash": "f18ff02c279887b1",
+            "blur_value": 585.9630929102553,
+            "similar_photos": [
+                "IMG_3995.JPG",
+                "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
+            ],
+            "location": [
+                55.94905,
+                -3.2005222222222223
+            ],
+            "timestamp": "2024:01:04 16:24:53",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_3997.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_3997.JPG",
+            "hash": "f18ff02c2798c3f0",
+            "blur_value": 573.0534326614239,
+            "similar_photos": [
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
+                "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3998.JPG",
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
+            ],
+            "location": [
+                55.94905,
+                -3.2005222222222223
+            ],
+            "timestamp": "2024:01:04 16:24:54",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_3998.JPG",
+            "path": "../src/lib/jeremy_lib\\IMG_3998.JPG",
+            "hash": "ff80df213087b8d2",
+            "blur_value": 474.7135820997588,
+            "similar_photos": [
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
+                "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3992.JPG",
+                "IMG_3993.JPG",
+                "IMG_3989.JPG",
+                "IMG_3991.JPG"
+            ],
+            "location": [
+                55.94905,
+                -3.2005222222222223
+            ],
+            "timestamp": "2024:01:04 16:24:55",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_6392.jpg",
+            "path": "../src/lib/jeremy_lib\\IMG_6392.jpg",
+            "hash": "a0d29cec2c5a7bcc",
+            "blur_value": 92.70470798638492,
+            "similar_photos": [
+                "IMG_6393.jpg",
+                "IMG_6396.jpg",
+                "IMG_6395.jpg",
+                "IMG_6394.jpg"
+            ],
+            "location": "Not available",
+            "timestamp": "2024:01:03 15:31:47",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_6393.jpg",
+            "path": "../src/lib/jeremy_lib\\IMG_6393.jpg",
+            "hash": "a2f29cf46c5a1365",
+            "blur_value": 152.72239699794332,
+            "similar_photos": [
+                "IMG_6392.jpg",
+                "IMG_6396.jpg",
+                "IMG_6395.jpg",
+                "IMG_6394.jpg"
+            ],
+            "location": "Not available",
+            "timestamp": "2024:01:03 15:31:48",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_6394.jpg",
+            "path": "../src/lib/jeremy_lib\\IMG_6394.jpg",
+            "hash": "a2729cfc6c5a1365",
+            "blur_value": 167.90304916059023,
+            "similar_photos": [
+                "IMG_6392.jpg",
+                "IMG_6393.jpg",
+                "IMG_6396.jpg",
+                "IMG_6395.jpg"
+            ],
+            "location": "Not available",
+            "timestamp": "2024:01:03 15:31:48",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_6395.jpg",
+            "path": "../src/lib/jeremy_lib\\IMG_6395.jpg",
+            "hash": "a2729cfc6c5a1365",
+            "blur_value": 94.03861318647253,
+            "similar_photos": [
+                "IMG_6392.jpg",
+                "IMG_6393.jpg",
+                "IMG_6396.jpg",
+                "IMG_6394.jpg"
+            ],
+            "location": "Not available",
+            "timestamp": "2024:01:03 15:31:49",
+            "is_selected": false
+        },
+        {
+            "filename": "IMG_6396.jpg",
+            "path": "../src/lib/jeremy_lib\\IMG_6396.jpg",
+            "hash": "a2f29cf46d5a1364",
+            "blur_value": 96.07302285602242,
+            "similar_photos": [
+                "IMG_6392.jpg",
+                "IMG_6393.jpg",
+                "IMG_6395.jpg",
+                "IMG_6394.jpg"
+            ],
+            "location": "Not available",
+            "timestamp": "2024:01:03 15:31:50",
+            "is_selected": false
         }
     ],
     "Moments": [
         {
-            "id": "0",
+            "id": 3,
             "title": "No Title",
             "description": "No Description",
             "date": "2024:01:04 16:40:25",
@@ -193,10 +428,10 @@
             "photos": [
                 "IMG_1765.JPG"
             ],
-            "best_photo": null
+            "best_photo": "IMG_1765.JPG"
         },
         {
-            "id": "1",
+            "id": 0,
             "title": "No Title",
             "description": "No Description",
             "date": "2024:01:04 14:57:35",
@@ -208,10 +443,10 @@
                 "IMG_3753.jpg",
                 "IMG_3752.jpg"
             ],
-            "best_photo": null
+            "best_photo": "IMG_3752.jpg"
         },
         {
-            "id": "2",
+            "id": 1,
             "title": "No Title",
             "description": "No Description",
             "date": "2024:01:04 16:24:32",
@@ -220,15 +455,35 @@
                 -3.200152777777778
             ],
             "photos": [
-                "IMG_3990.JPG",
-                "IMG_3991.JPG",
-                "IMG_3988.JPG",
+                "IMG_3996.JPG",
+                "IMG_3995.JPG",
                 "IMG_3986.JPG",
+                "IMG_3990.JPG",
+                "IMG_3994.JPG",
+                "IMG_3988.JPG",
+                "IMG_3997.JPG",
+                "IMG_3998.JPG",
                 "IMG_3992.JPG",
+                "IMG_3993.JPG",
                 "IMG_3989.JPG",
-                "IMG_3993.JPG"
+                "IMG_3991.JPG"
             ],
-            "best_photo": null
+            "best_photo": "IMG_3986.JPG"
+        },
+        {
+            "id": 2,
+            "title": "No Title",
+            "description": "No Description",
+            "date": "2024:01:03 15:31:47",
+            "location": "Not available",
+            "photos": [
+                "IMG_6394.jpg",
+                "IMG_6393.jpg",
+                "IMG_6395.jpg",
+                "IMG_6392.jpg",
+                "IMG_6396.jpg"
+            ],
+            "best_photo": "IMG_6392.jpg"
         }
     ]
 }

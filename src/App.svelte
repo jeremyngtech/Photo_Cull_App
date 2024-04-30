@@ -11,7 +11,7 @@
   // Fetch JSON data when the component is mounted - code from ChatGPT
   async function fetchData() {
   try {
-    const response = await fetch('src/jeremy-library.JSON');
+    const response = await fetch('src/library.JSON');
     if (!response.ok) {
       throw new Error('Failed to fetch JSON');
     }
@@ -25,7 +25,7 @@
       //console.log("success loop");
       photoFilenames = photoFilenames.concat(moment.photos);
       photoFilenames = photoFilenames.map(name => name.toUpperCase());
-      bestPhotos = bestPhotos.concat(moment.best_photos);
+      bestPhotos = bestPhotos.concat(moment.best_photo);
       bestPhotos = bestPhotos.map(name => name.toUpperCase());
     });
     console.log(bestPhotos);
