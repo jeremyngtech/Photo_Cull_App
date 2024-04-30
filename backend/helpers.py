@@ -2,31 +2,18 @@ import cv2
 import imagehash
 from PIL.ExifTags import TAGS, GPSTAGS
 from datetime import datetime, timedelta
+import numpy as np
 
-class UnionFind:
-    def __init__(self, size):
-        self.root = [i for i in range(size)]
-        self.rank = [1] * size
+def convert(obj):
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    else:
+        return obj
 
-    def find(self, x):
-        if self.root[x] == x:
-            return x
-        self.root[x] = self.find(self.root[x])
-        return self.root[x]
-
-    def union(self, x, y):
-        rootX = self.find(x)
-        rootY = self.find(y)
-
-        if rootX != rootY:
-            if self.rank[rootX] > self.rank[rootY]:
-                self.root[rootY] = rootX
-            elif self.rank[rootX] < self.rank[rootY]:
-                self.root[rootX] = rootY
-            else:
-                self.root[rootY] = rootX
-                self.rank[rootX] += 1
-                
 def get_geotagging(exif):
     if not exif:
         raise ValueError("No EXIF metadata found")
@@ -66,6 +53,31 @@ def get_coordinates(geotags):
     lon = get_decimal_from_dms(geotags['GPSLongitude'], geotags['GPSLongitudeRef'])
     
     return (lat, lon)
+
+
+def check_time_difference(photo1, photo2, minutes_specified=4):
+    time1 = photo1.get_datetime()
+    time2 = photo2.get_datetime()
+
+     # Calculate the difference in time
+    time_difference = abs(time1 - time2)
+    
+    # Check if the difference is less than or equal to the threshold
+    return time_difference <= timedelta(minutes=minutes_specified)
+
+
+def similar_location(photo1, photo2):
+    if photo1.location == "Not available" or photo2.location == "Not available":
+        return 2
+    long1 = float(photo1.location[1])
+    long2 = float(photo2.location[1])
+
+    lat1 = float(photo1.location[0])
+    lat2 = float(photo2.location[0])
+
+    if abs(lat1 - lat2) < 1 and abs(long1 - long2) < 1:
+        return 1
+    return 0
 
 def get_location(img):
     try:

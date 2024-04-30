@@ -1,5 +1,6 @@
-from helpers import get_location, calculate_blur_value, get_date_time, calculate_image_hash
-from datetime import datetime, timedelta
+from helpers import get_location, calculate_blur_value, get_date_time, calculate_image_hash, similar_location, check_time_difference
+from datetime import datetime
+import imagehash
 
 class Photo:
     def __init__(self, filename, path, img):
@@ -36,11 +37,29 @@ class Photo:
         self.hash = calculate_image_hash(self.image)
     
     def is_similar(self, other):
-        if self.hash is None:
-            self.calculate_hash()
-        if other.hash is None:
-            other.calculate_hash()
-        return self.hash - other.hash < 3
+        within_minutes = 2
+        sim_time = check_time_difference(self, other, within_minutes)
+        sim_location = similar_location(self, other)
+        
+        # Locations not available, diff times
+        if sim_location == 2 and not sim_time:
+            hash_similarity_threshold = 15
+
+        # Same location, diff times
+        elif sim_location == 1 and not sim_time:
+            hash_similarity_threshold = 25
+
+        # Locations not available, same time
+        elif sim_location == 2 and sim_time:
+            hash_similarity_threshold = 30
+        
+        # Same location, same time
+        else:
+            hash_similarity_threshold = 42
+        hash_diff = imagehash.hex_to_hash(self.hash) - imagehash.hex_to_hash(other.hash)
+        if hash_diff < hash_similarity_threshold:
+            return True
+        return False
     
     def __str__(self):
         return self.filename
