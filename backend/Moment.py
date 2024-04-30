@@ -1,11 +1,11 @@
 class Moment:
-    def __init__(self, id, date, location, photos=set(), title=None, description=None):
+    def __init__(self, id, date, location, title=None, description=None):
         self.id = id
         self.title = title
         self.description = description
         self.date = date
         self.location = location
-        self.photos = photos
+        self.photos = set()
         self.best_photo = None
 
     def __str__(self):
@@ -13,7 +13,9 @@ class Moment:
     
     def add_photo(self, filename):
         '''Add a photo to the moment.'''
+        print(f"Adding photo {filename} to moment {self.id}")
         self.photos.add(filename)
+        print(f"Photos are now ", self.photos)
 
     def remove_photo(self, filename):
         '''Remove a photo from the moment.'''
@@ -27,6 +29,17 @@ class Moment:
             self.set_best_photo(photos_dict)
             return self.best_photo
 
+    def set_best_photo(self, photos_dict):
+        '''Sets photo with lowest blurriness value as best photo'''
+        if not self.photos:
+            self.best_photo = None
+            return
+        photos = [(p.blur_value, p.filename) for p in photos_dict.values() if p.filename in self.photos]
+        print(f"photos are ", photos)
+        least_blurry = min(photos)[1]
+        print(f"least_blurry is ", least_blurry)
+        self.best_photo = least_blurry
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -34,24 +47,5 @@ class Moment:
             "description": self.description,
             "date": self.date,
             "location": self.location,
-            "photo": self.photo
-        }
-    
-    def set_best_photo(self, photos_dict):
-        photos = [(p.blur_value, p.filename) for p in photos_dict.values() if p.filename in self.photos]
-        print(f"photos are ", photos)
-        least_blurry = min(photos)[1]
-        print(f"least_blurry is ", least_blurry)
-        self.best_photo = least_blurry
-            
-
-    @staticmethod
-    def from_dict(data):
-        return Moment(
-            data.get("id"),
-            data.get("title"),
-            data.get("description"),
-            data.get("date"),
-            data.get("location"),
-            data.get("photo")
-        )
+            "Photos": list(self.photos)
+        }     
