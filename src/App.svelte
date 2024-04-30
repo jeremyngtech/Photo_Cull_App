@@ -85,13 +85,17 @@
     //console.log("test best", bestPhotos)
     // Set button state to true for photos in bestPhotos
     photoFilenames.forEach((filename, index) => {
-      const photo = jsonLibrary.Photos.find(photo => photo.filename === filename);
+      //const photo = jsonLibrary.Photos.find(photo => photo.filename === filename);
       //console.log(filename); 
       //console.log("photo fn", photo); 
-      
-      if (photo && bestPhotos.includes(photo.filename)) {
+
+      if (bestPhotos.includes((filename).toUpperCase())) {
         buttonStates[index] = true;
       }
+      
+      /*if (photo && bestPhotos.includes((photo.filename).toUpperCase())) {
+        buttonStates[index] = true;
+      }*/
     });
 
     //console.log("prev", previousStates);
@@ -135,6 +139,12 @@
   function toggleEditMode() {
     editMode = !editMode;
   }
+
+  let tooltipVisible = true;
+
+  function toggleTooltip() {
+    tooltipVisible = !tooltipVisible;
+  }
 </script>
 
 <html lang="en">
@@ -159,12 +169,17 @@
         <div id="view-title">
           Cull Your Photos &nbsp;
           <div class="tooltip">
-            <img class="question" src='./src/assets/question.png'>
-            <span class="tooltiptext">
-              Culling is the process of choosing your best photos, reducing the number of photos in your library/album. <br>
-              <br>
-              Switch to Edit Mode to automatically or manually cull your photos.
-            </span>
+            <img class="question" src='./src/assets/question.png' on:click={() => toggleTooltip()}>
+            {#if tooltipVisible}
+              <div class="tooltiptext">
+                <span class="close" on:click={toggleTooltip}>X</span>
+                <div class="tool-instruct">
+                  Culling is the process of choosing your best photos, reducing the number of photos in your library/album. <br>
+                  <br>
+                  Switch to Edit Mode to automatically or manually cull your photos.
+                </div>
+              </div>
+            {/if}
           </div>
           <br>
         </div>
