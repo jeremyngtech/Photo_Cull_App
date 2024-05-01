@@ -11,6 +11,7 @@ from Photo import Photo
 from Moment import Moment
 from helpers import convert
 from sklearn.cluster import DBSCAN
+from sklearn.neighbors import NearestNeighbors
 import logging
 
 # Configure logging
@@ -25,38 +26,50 @@ TEST_THRESHOLD = 20
 photos_dict = {}
 moments_dict = {}
 
+def choose_eps(features, k=2):
+    """Determine an optimal DBSCAN 'eps' value using the k-nearest neighbors method."""
+    # Fit NearestNeighbors model to data
+    neighbors = NearestNeighbors(n_neighbors=k)
+    neighbors.fit(features)
+    distances, indices = neighbors.kneighbors(features)
+
+    # Sort and plot the k-th distances
+    kth_distances = distances[:, k-1]  # k-1 because index starts at 0
+    kth_distances.sort()
+
+    optimal_eps = kth_distances[int(len(kth_distances) * 0.95)]
+    print(f"Suggested eps: {optimal_eps}")
+    
+    return optimal_eps
+
 def find_moments():
     """Cluster photos into moments, adjusting parameters and re-clustering outliers."""
     photo_list = list(photos_dict.values())
     photo_features = np.array([prepare_features(photo) for photo in photo_list])
     
     # First round of clustering
-    clustering = DBSCAN(eps=1, min_samples=2).fit(photo_features)
+    clustering = DBSCAN(eps=1, min_samples=1).fit(photo_features)
     labels = clustering.labels_
     
     # Identify outliers
     outliers = [i for i, label in enumerate(labels) if label == -1]
-    outlier_photos = [photo_list[i] for i in outliers]
+    if outliers:
+        outlier_photos = [photo_list[i] for i in outliers]
 
-    # Prepare features for outliers without considering location
-    outlier_features = np.array([prepare_features(photo, use_location=False) for photo in outlier_photos])
-    
-    # Second round of clustering just for outliers
-    outlier_clustering = DBSCAN(eps=2, min_samples=1).fit(outlier_features)
-    
-    # Map new cluster labels to continue after max label from first clustering
-    max_label = max(labels)
-    new_labels = [label + max_label + 1 if label != -1 else -1 for label in outlier_clustering.labels_]
+        # Prepare features for outliers without considering location
+        outlier_features = np.array([prepare_features(photo, use_location=False) for photo in outlier_photos])
+        
+        # Second round of clustering just for outliers
+        outlier_clustering = DBSCAN(eps=choose_eps(outlier_features), min_samples=1).fit(outlier_features)
+        
+        # Map new cluster labels to continue after max label from first clustering
+        max_label = max(labels)
+        new_labels = [label + max_label + 1 if label != -1 else -1 for label in outlier_clustering.labels_]
+        
+        # Update the original labels array with new labels for outliers
+        for index, new_label in zip(outliers, new_labels):
+            labels[index] = new_label
 
-    print(f"Max label: {max_label}, New labels: {new_labels}")
-    print(f"Outliers: {outliers}, Outlier labels: {outlier_clustering.labels_}")
-    print(f"Zipped: {list(zip(outliers, new_labels))}")
-    
-    # Update the original labels array with new labels for outliers
-    for index, new_label in zip(outliers, new_labels):
-        labels[index] = new_label
-
-    print(clustering.labels_)
     # Process final clustering results
     for label, photo in zip(labels, photo_list):
         if label not in moments_dict:
@@ -70,10 +83,9 @@ def find_moments():
 
 def prepare_features(photo, use_location=True):
     """Prepare feature vector for clustering with optional location usage."""
-    time_normalized = photo.get_datetime().timestamp() / 120
-    hash_normalized = int(photo.hash, 16) / float(2**64) 
-
     if use_location:
+        time_normalized = photo.get_datetime().timestamp() / 120
+        hash_normalized = int(photo.hash, 16) / float(2**64) 
         location = photo.get_location()
         if not location:
             location_normalized = (1000, 1000)
@@ -81,7 +93,10 @@ def prepare_features(photo, use_location=True):
             location_normalized = (location[0] / 45, location[1] / 90)
         return [time_normalized, hash_normalized] + list(location_normalized)
     else:
+        time_normalized = photo.get_datetime().timestamp() / 300
+        hash_normalized = int(photo.hash, 16) / float(2**64)
         return [time_normalized, hash_normalized]
+
 
 def find_similar_photos():
     """Identify similar photos based on predefined criteria."""
