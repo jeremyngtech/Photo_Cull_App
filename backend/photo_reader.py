@@ -12,6 +12,7 @@ from Moment import Moment
 from helpers import convert
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
+from concurrent.futures import ProcessPoolExecutor
 import logging
 
 # Configure logging
@@ -45,7 +46,7 @@ def choose_eps(features, k=2):
 def find_moments():
     """Cluster photos into moments, adjusting parameters and re-clustering outliers."""
     photo_list = list(photos_dict.values())
-    photo_features = np.array([prepare_features(photo) for photo in photo_list])
+    photo_features = prepare_features_concurrent(photo_list)
     
     # First round of clustering
     clustering = DBSCAN(eps=1, min_samples=1).fit(photo_features)
@@ -79,6 +80,12 @@ def find_moments():
     # Set best photo after all moments established
     for moment in moments_dict.values():
         moment.set_best_photo(photos_dict)
+
+def prepare_features_concurrent(photo_list):
+    """Prepare features using multiple processes."""
+    with ProcessPoolExecutor() as executor:
+        results = list(executor.map(prepare_features, photo_list))
+    return np.array(results)
             
 
 def prepare_features(photo, use_location=True):
